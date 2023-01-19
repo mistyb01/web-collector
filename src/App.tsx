@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC } from 'react';
+import Bookmarks from './Bookmarks';
+import Date from './Date';
 
-function App() {
+const App:FC = () => {
+  interface Link {
+    name: string, 
+    url: string, 
+    category: string
+  }
+
+  let bookmarkData: Link[] = [
+    {name: "mdn", url: "https://developer.mozilla.org/en-US/", category: "reference"},
+    {name: "react", url: "https://reactjs.org/docs/hello-world.html", category: "reference"},
+    {name: "css demystified", url: "https://courses.kevinpowell.co/view/courses/css-demystified", category: "courses"},
+    {name: "tumblr", url: "https://tumblr.com", category: "fun"},
+  ]
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Date/>
       </header>
+      <Bookmarks bookmarkData={bookmarkData}/>
     </div>
   );
 }
