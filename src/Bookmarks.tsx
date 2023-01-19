@@ -1,7 +1,8 @@
 import React, { useState }  from 'react';
+import { Link } from './@types/app';
 
 interface Props {
-  bookmarkData: {name: string, url: string, category: string}[];
+  bookmarkData: Link[];
 }
 
 // React.FC<Props> specifies that Bookmarks is a functional component.
