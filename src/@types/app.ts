@@ -5,5 +5,5 @@ export type Link = {
     url: string, 
     description: string,
     category: string,
-    subcategory: string
+    tag: string
   }

@@ -1,4 +1,4 @@
-import React, { ReactEventHandler, useState }  from 'react';
+import React, { ReactEventHandler }  from 'react';
 import { Link } from './@types/app';
 
 interface Props {
