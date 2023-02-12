@@ -15,15 +15,24 @@ const App:FC = () => {
   ]
 
   const [category, setCategory] = useState('code');
+  const [tag, setTag] = useState('all');
   
   function handleCategoryChange(e: React.MouseEvent<HTMLButtonElement>) {
     setCategory(e.currentTarget.id);
+    setTag('all');
   }
+  
+  function handleTagChange(e: React.MouseEvent<HTMLButtonElement>) {
+    setTag(e.currentTarget.id);
+  }
+  
 
   const props = {
     bookmarkData: bookmarkData,
     category: category,
-    handleCategoryChange: handleCategoryChange
+    handleCategoryChange: handleCategoryChange,
+    tag: tag,
+    handleTagChange: handleTagChange
   }
 
   return (

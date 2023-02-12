@@ -3,12 +3,16 @@ import { Link } from './@types/app';
 
 interface Props {
   bookmarkData: Link[],
-  category: string
+  category: string,
+  tag: string
 }
 
 // React.FC<Props> specifies that Bookmarks is a functional component.
 export const Bookmarks: React.FC<Props> = (props) => {
-  const filteredBookmarks = props.bookmarkData.filter((bookmark) => bookmark.category === props.category);
+  let filteredBookmarks = props.bookmarkData.filter((bookmark) => bookmark.category === props.category);
+  if (props.tag !== 'all') {
+    filteredBookmarks = filteredBookmarks.filter((bookmark) => bookmark.tag === props.tag)
+  }
 
   return (
     <div className="bookmarks-container">
