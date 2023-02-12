@@ -1,25 +1,20 @@
 import React from 'react';
 import { FC } from 'react';
 import Bookmarks from './Bookmarks';
-import Date from './Date';
-
+import { Link } from './@types/app';
 const App:FC = () => {
-  interface Link {
-    name: string, 
-    url: string, 
-    category: string
-  }
 
+  
   let bookmarkData: Link[] = [
-    {name: "mdn", url: "https://developer.mozilla.org/en-US/", category: "reference"},
-    {name: "react", url: "https://reactjs.org/docs/hello-world.html", category: "reference"},
-    {name: "css demystified", url: "https://courses.kevinpowell.co/view/courses/css-demystified", category: "courses"},
-    {name: "tumblr", url: "https://tumblr.com", category: "fun"},
+    {name: "mdn", url: "https://developer.mozilla.org/en-US/", description:"", category: "code", subcategory: "official docs"},
+    {name: "react", url: "https://reactjs.org/docs/hello-world.html", description:"",  category: "code", subcategory: "official docs"},
+    {name: "css demystified", url: "https://courses.kevinpowell.co/view/courses/css-demystified", description:"", category: "code", subcategory: "courses"},
+    {name: "tumblr", url: "https://tumblr.com", description:"", category: "fun", subcategory: "social"},
   ]
+
   return (
     <div className="App">
       <header className="App-header">
-        <Date/>
       </header>
       <Bookmarks bookmarkData={bookmarkData}/>
     </div>

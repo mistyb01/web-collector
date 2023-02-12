@@ -7,18 +7,22 @@ interface Props {
 
 // React.FC<Props> specifies that Bookmarks is a functional component.
 export const Bookmarks: React.FC<Props> = ({bookmarkData}) => {
-  const [category, setCategory] = useState('fun');
+  const [category, setCategory] = useState('code');
 
   function handleCategoryChange(e: React.MouseEvent<HTMLButtonElement>) {
     setCategory(e.currentTarget.id);
   }
 
+  const categories = Array.from(new Set(
+    bookmarkData.map((bookmark) => bookmark.category)
+    ));
+
   return (
     <div className="bookmarks-container">
       <div className='category-buttons'>
-        <button id="reference" onMouseEnter={handleCategoryChange}>reference</button>
-        <button id="courses" onMouseEnter={handleCategoryChange}>courses</button>
-        <button id="fun" onMouseEnter={handleCategoryChange}>fun</button>
+        {categories.map((category) => {
+         return (<button id={category} onMouseEnter={handleCategoryChange}>{category}</button>);
+        })}
       </div>
       <ul className="bookmarks-list">
         {bookmarkData.map((bookmark) => {
