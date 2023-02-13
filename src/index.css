@@ -44,15 +44,23 @@ li { list-style: none; }
   text-align: center;
 }
 .categories__button {
+  color: var(--fg-color);
+  letter-spacing: 2px;
+  text-transform: uppercase;
   background-color: transparent;
   border: var(--border);
-  color: var(--fg-color);
   padding: 1rem 2rem;
 }
 
 .categories__button:hover {
   color: var(--highlight-color);
   cursor: pointer;
+}
+
+.categories__button--selected {
+  color:  var(--highlight-color);
+  background-color: var(--tertiary-color);
+  border: 1px dotted var(--highlight-color);
 }
 
 main {
