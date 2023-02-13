@@ -30,7 +30,7 @@ body {
   color: var(--fg-color);
 }
 
-main, header { margin-top: 1rem; }
+main, header { margin-top: 2rem; }
 
 a { 
   color: currentColor;
@@ -40,28 +40,42 @@ a {
 
 li { list-style: none; }
 
-.categories {
-  text-align: center;
-}
-.categories__button {
+.header__button {
   color: var(--fg-color);
-  letter-spacing: 2px;
-  text-transform: uppercase;
   background-color: transparent;
   border: var(--border);
   padding: 1rem 2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;  
 }
 
-.categories__button:hover {
+.header__button:hover {
   color: var(--highlight-color);
   cursor: pointer;
 }
 
-.categories__button--selected {
+.header__button--selected {
   color:  var(--highlight-color);
   background-color: var(--tertiary-color);
-  /* border: 1px dotted var(--highlight-color); */
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.header-logo {
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-weight:lighter;
+}
+
+.categories {
+  text-align: center;
+}
+
 
 main {
   display: flex;

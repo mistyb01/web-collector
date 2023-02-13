@@ -31,7 +31,12 @@ const App:FC = () => {
   return (
     <div className="app">
       <header>
+        <h1 className="header-logo">web collector</h1>
         <Categories categoryList={categoryList} category={category} handleCategoryChange={handleCategoryChange}/>
+        <div className="header-buttons horizontal-space">
+          <button className="header__button">add bookmark</button>
+          <button className="header__button">edit</button>
+        </div>
       </header>
       <main className="horizontal-space">
         <div className="filter-menu">
