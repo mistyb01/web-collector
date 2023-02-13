@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -100,4 +102,12 @@ main {
   cursor: pointer;
 }
 
+.tags-list__item--selected {
+  color: var(--fg-color);
+  text-decoration: wavy;
+}
 
+.tags-list__item--selected::before {
+  content: '×';
+  margin-right: 1rem;
+}
