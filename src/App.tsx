@@ -7,11 +7,13 @@ import { Link } from './@types/app';
 import bookmarkData from './data/static-data';
 
 const App:FC = () => {
-
-  
   
   const [category, setCategory] = useState('code');
   const [tag, setTag] = useState('all');
+  
+  const categoryList = Array.from(new Set(
+    bookmarkData.map((bookmark) => bookmark.category)
+    ));
   
   function handleCategoryChange(e: React.MouseEvent<HTMLButtonElement>) {
     setCategory(e.currentTarget.id);
@@ -29,7 +31,7 @@ const App:FC = () => {
   return (
     <div className="app">
       <header>
-        <Categories bookmarkData={bookmarkData} category={category} handleCategoryChange={handleCategoryChange}/>
+        <Categories categoryList={categoryList} category={category} handleCategoryChange={handleCategoryChange}/>
       </header>
       <main className="horizontal-space">
         <div className="filter-menu">
