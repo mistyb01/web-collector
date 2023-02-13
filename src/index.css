@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -42,15 +44,23 @@ li { list-style: none; }
   text-align: center;
 }
 .categories__button {
+  color: var(--fg-color);
+  letter-spacing: 2px;
+  text-transform: uppercase;
   background-color: transparent;
   border: var(--border);
-  color: var(--fg-color);
   padding: 1rem 2rem;
 }
 
 .categories__button:hover {
   color: var(--highlight-color);
   cursor: pointer;
+}
+
+.categories__button--selected {
+  color:  var(--highlight-color);
+  background-color: var(--tertiary-color);
+  /* border: 1px dotted var(--highlight-color); */
 }
 
 main {
@@ -100,4 +110,12 @@ main {
   cursor: pointer;
 }
 
+.tags-list__item--selected {
+  color: var(--fg-color);
+  text-decoration: wavy;
+}
 
+.tags-list__item--selected::before {
+  content: '×';
+  margin-right: 1rem;
+}

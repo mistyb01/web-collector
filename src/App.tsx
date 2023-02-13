@@ -19,7 +19,11 @@ const App:FC = () => {
   }
   
   function handleTagChange(e: React.MouseEvent<HTMLButtonElement>) {
+    if (e.currentTarget.id === tag) {
+      setTag('all');
+    } else {
     setTag(e.currentTarget.id);
+    }
   }
   
 

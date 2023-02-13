@@ -5,7 +5,8 @@ interface Props {
     bookmarkData: Link[],
     handleCategoryChange: ReactEventHandler,
     handleTagChange: ReactEventHandler,
-    category: string
+    category: string,
+    tag: string
   }
   
 export const Tags: React.FC<Props> = (props) => {
@@ -18,6 +19,9 @@ export const Tags: React.FC<Props> = (props) => {
         <div>
             <ul className='tags-list'>
                 {tags.map((tag) => {
+                    if (tag === props.tag) {
+                        return (<li className='tags-list__item tags-list__item--selected' onClick={props.handleTagChange} id={tag}>{tag}</li>);
+                    } 
                     return (<li className='tags-list__item' onClick={props.handleTagChange} id={tag}>{tag}</li>);
                 })}
             </ul>
