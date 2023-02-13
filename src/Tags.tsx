@@ -3,10 +3,9 @@ import { Link } from './@types/app';
 
 interface Props {
     bookmarkData: Link[],
-    handleCategoryChange: ReactEventHandler,
-    handleTagChange: ReactEventHandler,
     category: string,
-    tag: string
+    tag: string,
+    handleTagChange: ReactEventHandler
   }
   
 export const Tags: React.FC<Props> = (props) => {

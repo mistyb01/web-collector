@@ -3,8 +3,8 @@ import { Link } from './@types/app';
 
 interface Props {
     bookmarkData: Link[];
-    handleCategoryChange: ReactEventHandler;
     category: string;
+    handleCategoryChange: ReactEventHandler;
   }
   
 export const Categories: React.FC<Props> = (props) => {

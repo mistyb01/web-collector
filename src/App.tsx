@@ -26,27 +26,18 @@ const App:FC = () => {
     }
   }
   
-
-  const props = {
-    bookmarkData: bookmarkData,
-    category: category,
-    handleCategoryChange: handleCategoryChange,
-    tag: tag,
-    handleTagChange: handleTagChange
-  }
-
   return (
     <div className="app">
       <header>
-        <Categories {...props}/>
+        <Categories bookmarkData={bookmarkData} category={category} handleCategoryChange={handleCategoryChange}/>
       </header>
       <main className="horizontal-space">
         <div className="filter-menu">
           <h3 className="filter-menu__header">filters</h3>
-          <Tags {...props}/>
+          <Tags bookmarkData={bookmarkData} category={category} tag={tag} handleTagChange={handleTagChange} />
         </div>
         <div className="bookmarks">
-         <Bookmarks {...props}/>
+         <Bookmarks bookmarkData={bookmarkData} category={category} tag={tag}/>
         </div>
       </main>
     </div>
