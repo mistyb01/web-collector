@@ -16,7 +16,7 @@ export const Bookmarks: React.FC<Props> = (props) => {
 
   return (
     <div className="bookmarks-container">
-      <ul className="bookmarks-list horizontal-space">
+      <ul className="bookmarks-list">
         {filteredBookmarks.map((bookmark) => {
             return (
               <li className="bookmarks-list__item">

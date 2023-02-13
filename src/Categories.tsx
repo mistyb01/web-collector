@@ -14,8 +14,9 @@ export const Categories: React.FC<Props> = (props) => {
 
     return (
         <div className='categories horizontal-space'>
+         {/* <button className='categories__button categories__button--star' id='star' onClick={props.handleCategoryChange}>✭</button> */}
         {categories.map((category) => {
-         return (<button className='categories__button' id={category} onMouseEnter={props.handleCategoryChange}>{category}</button>);
+         return (<button className='categories__button' id={category} onClick={props.handleCategoryChange}>{category}</button>);
         })}
       </div>
     )
