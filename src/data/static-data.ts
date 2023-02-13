@@ -20,6 +20,12 @@ const bookmarkData: Link[] = [
     {name: "1041uuu", url: "https://1041uuu.tumblr.com", description:"", category: "art", tag: "web artists"},
     {name: "みなはむ", url: "https://www.pixiv.net/en/users/228408", description:"", category: "art", tag: "web artists"},
     {name: "pon-marsh", url: "https://www.pixiv.net/en/users/5093857", description:"", category: "art", tag: "web artists"},
+    {name: "holly warburton", url: "https://holly-warbs.tumblr.com/", description:"", category: "art", tag: "web artists"},
+    {name: "海島千本", url: "https://www.pixiv.net/en/users/18362/", description:"", category: "art", tag: "web artists"},
+    {name: "illumi999", url: "https://www.instagram.com/illumi999/", description:"", category: "art", tag: "web artists"},
+    
+    {name: "gumroad", url: "https://app.gumroad.com/library", description:"", category: "art", tag: "general learning"},
+    {name: "adorkastock", url: "https://www.adorkastock.com/pose/", description:"", category: "art", tag: "anatomy"},
 
 
     {name: "yesterweb", url: "https://yesterweb.org/", description:"", category: "fun", tag: "indie web"},
