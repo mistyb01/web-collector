@@ -37,7 +37,7 @@ const App:FC = () => {
 
   return (
     <div className="app">
-      <header className="app-header">
+      <header>
         <Categories {...props}/>
       </header>
       <main>

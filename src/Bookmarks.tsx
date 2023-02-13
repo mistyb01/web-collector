@@ -16,10 +16,10 @@ export const Bookmarks: React.FC<Props> = (props) => {
 
   return (
     <div className="bookmarks-container">
-      <ul className="bookmarks-list">
+      <ul className="bookmarks-list horizontal-space">
         {filteredBookmarks.map((bookmark) => {
             return (
-              <li>
+              <li className="bookmarks-list__item">
                 <a href={bookmark.url} target="_blank">{bookmark.name}</a>
               </li>
             );

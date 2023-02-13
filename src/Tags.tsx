@@ -15,10 +15,10 @@ export const Tags: React.FC<Props> = (props) => {
     ));
 
     return (
-        <div className='tagslist'>
-            <ul>
+        <div>
+            <ul className='tags-list'>
                 {tags.map((tag) => {
-                    return (<li onClick={props.handleTagChange} id={tag}>{tag}</li>);
+                    return (<li className='tags-list__item' onClick={props.handleTagChange} id={tag}>{tag}</li>);
                 })}
             </ul>
       </div>
