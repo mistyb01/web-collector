@@ -1,6 +1,6 @@
 import { Link } from '../@types/app';
 
-const bookmarkData: Link[] = [
+const mockData: Link[] = [
     {name: "mdn", url: "https://developer.mozilla.org/en-US/", description:"", category: "code", tag: "official docs"},
     {name: "react", url: "https://reactjs.org/docs/hello-world.html", description:"",  category: "code", tag: "official docs"},
     {name: "typescript", url: "https://www.typescriptlang.org/docs/", description:"", category: "code", tag: "official docs"},
@@ -37,4 +37,4 @@ const bookmarkData: Link[] = [
     {name: "anilinks", url: "http://www.anilinks.neocities.org", description:"", category: "fun", tag: "anime"},
   ];
 
-  export default bookmarkData;
+  export default mockData;

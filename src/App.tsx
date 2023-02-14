@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FC } from 'react';
+import { Link } from './@types/app';
 import Bookmarks from './Bookmarks';
 import Categories from './Categories';
 import Tags from './Tags';
 import AddBookmark from './AddBookmark';
-import bookmarkData from './data/static-data';
+import mockData from './data/static-data';
+import { useLocalStorage } from 'usehooks-ts';
 
 const App:FC = () => {
   
+  const [bookmarkData, setBookmarkData] = useLocalStorage('bookmarkData', mockData);
   const [category, setCategory] = useState('code');
   const [tag, setTag] = useState('all');
   const [showAddBookmark, setShowAddBookmark] = useState(false);
   
+  const test:Link = {name: "test", url: "https://developer.mozilla.org/en-US/", description:"", category: "code", tag: "official docs"};
+    
   const categoryList = Array.from(new Set(
     bookmarkData.map((bookmark) => bookmark.category)
     ));
@@ -19,6 +24,7 @@ const App:FC = () => {
   function handleCategoryChange(e: React.MouseEvent<HTMLButtonElement>) {
     setCategory(e.currentTarget.id);
     setTag('all');
+    setBookmarkData([...mockData, test]);
   }
   
   function handleTagChange(e: React.MouseEvent<HTMLButtonElement>) {
