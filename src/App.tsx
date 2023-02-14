@@ -44,13 +44,13 @@ const App:FC = () => {
       {showAddBookmark && 
         <>
          <header>
-          <h1 className="header-logo">web collector</h1>
+          <h1 className="header-logo"></h1>
           <div className="header-buttons horizontal-space">
             <button className="header__button" onClick={() => setShowAddBookmark(!showAddBookmark)}>Close</button>
           </div>
         </header>
           <main className="form-container">
-            <AddBookmark handleAddToBookmarks={handleAddToBookmarks}/>
+            <AddBookmark handleAddToBookmarks={handleAddToBookmarks} closeForm={() => setShowAddBookmark(false)}/>
           </main>
         </>}
       {!showAddBookmark &&

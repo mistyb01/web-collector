@@ -3,6 +3,7 @@ import { Link } from './@types/app';
 
 interface Props {
     handleAddToBookmarks: Function;
+    closeForm: Function;
 }
   
 export const AddBookmark: React.FC<Props> = (props: Props) => {
@@ -24,6 +25,12 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
             tag: tag
         }
         props.handleAddToBookmarks(newBookmark);
+        setName('');
+        setUrl('');
+        setCategory('');
+        setTag('');
+        setDescription('');
+        props.closeForm();
     }
 
     return (
