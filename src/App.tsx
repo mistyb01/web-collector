@@ -16,7 +16,7 @@ const App:FC = () => {
   const [showAddBookmark, setShowAddBookmark] = useState(false);
   
   const test:Link = {name: "test", url: "https://developer.mozilla.org/en-US/", description:"", category: "code", tag: "official docs"};
-    
+
   const categoryList = Array.from(new Set(
     bookmarkData.map((bookmark) => bookmark.category)
     ));
@@ -24,7 +24,6 @@ const App:FC = () => {
   function handleCategoryChange(e: React.MouseEvent<HTMLButtonElement>) {
     setCategory(e.currentTarget.id);
     setTag('all');
-    setBookmarkData([...mockData, test]);
   }
   
   function handleTagChange(e: React.MouseEvent<HTMLButtonElement>) {
@@ -33,6 +32,10 @@ const App:FC = () => {
     } else {
     setTag(e.currentTarget.id);
     }
+  }
+
+  function handleAddToBookmarks(newData:Link) {
+    setBookmarkData([...bookmarkData, newData]);
   }
   
   return (
@@ -47,7 +50,7 @@ const App:FC = () => {
           </div>
         </header>
           <main className="form-container">
-            <AddBookmark/>
+            <AddBookmark handleAddToBookmarks={handleAddToBookmarks}/>
           </main>
         </>}
       {!showAddBookmark &&
