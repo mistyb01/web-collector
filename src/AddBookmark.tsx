@@ -55,12 +55,12 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
                 <div className='add-bookmark__row horizontal-space'>
                     <label className='add-bookmark__label'>
                         <span>Category</span>
-                        <div className='add-bookmark__category-options horizontal-space'>
-                            <label className="radio-label"><input type="radio" name="category" value="new" checked={showCategoryInput} onChange={() => {setCategory(''); setShowCategoryInput(!showCategoryInput)}} />
+                        <div className='add-bookmark__category-options horizontal-space vertical-space'>
+                            <label className="radio-label category-option category-option--new"><input type="radio" name="category" value="new" checked={showCategoryInput} onChange={() => {setCategory(''); setShowCategoryInput(!showCategoryInput)}} />
                             +</label>
                             {props.categoryList.map((category) => {
                                 return (
-                                    <label className="radio-label">
+                                    <label className="radio-label category-option">
                                     <input type="radio" name="category" value={category} onChange={(e) => {setShowCategoryInput(false); setCategory(e.target.value)}}/>
                                     {category}</label>
                                 )

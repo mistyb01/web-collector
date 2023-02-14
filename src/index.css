@@ -186,7 +186,8 @@ input[type=text]:focus {
 }
 
 .radio-label:focus-within {
-  outline: 1px solid orange;
+  color: var(--highlight-color);
+  outline: 1px solid var(--highlight-color);
 }
 
 .add-bookmark__label > * {
@@ -206,16 +207,13 @@ input[type=text]:focus {
   display: inline;
 }
 
-.form-button-category {
+.category-option {
   font-size: 1rem;
-  border: var(--border);
   border-radius: 100vh;
-  background-color: var(--secondary-color);
-  color: var(--highlight-color);
-  padding: 0.5rem;
+  background-color: var(--lighter-bg-color);
+  padding: 0.1rem 0.25rem;
 }
 
-.form-button-category--new {
-  background-color: transparent;
+.category-option--new {
   color: var(--highlight-color);
 }
