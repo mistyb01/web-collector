@@ -40,12 +40,10 @@ const App:FC = () => {
             <button className="header__button" onClick={() => setShowAddBookmark(!showAddBookmark)}>Close</button>
           </div>
         </header>
-          <main>
-            <h2>new bookmark</h2>
+          <main className="form-container">
             <AddBookmark/>
           </main>
-        </>
-      }
+        </>}
       {!showAddBookmark &&
         <>
         <header>
@@ -56,7 +54,7 @@ const App:FC = () => {
             <button className="header__button">edit</button>
           </div>
         </header>
-        <main className="horizontal-space">
+        <main className="main-container horizontal-space">
           <div className="filter-menu">
             <h3 className="filter-menu__header">filters</h3>
             <Tags bookmarkData={bookmarkData} category={category} tag={tag} handleTagChange={handleTagChange} />
@@ -65,8 +63,7 @@ const App:FC = () => {
           <Bookmarks bookmarkData={bookmarkData} category={category} tag={tag}/>
           </div>
         </main>
-      </>
-      }
+      </>}
     </div>
   );
 }

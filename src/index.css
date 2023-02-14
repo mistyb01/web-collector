@@ -21,6 +21,10 @@
 .horizontal-space > * + * {
   margin-left: 1rem;
 }
+
+.vertical-space > * + * {
+  margin-top: 1rem;
+}
 /*  */
 
 body {
@@ -40,13 +44,16 @@ a {
 
 li { list-style: none; }
 
-.header__button {
-  color: var(--fg-color);
-  background-color: transparent;
-  border: var(--border);
+button {
   padding: 1rem 2rem;
   letter-spacing: 2px;
   text-transform: uppercase;  
+}
+
+.header__button {
+  color: var(--fg-color);
+  background-color: transparent;
+  border: var(--border); 
 }
 
 .header__button:hover {
@@ -59,25 +66,36 @@ li { list-style: none; }
   background-color: var(--tertiary-color);
 }
 
+.form-button {
+  color:  var(--highlight-color);
+  background-color: var(--tertiary-color);
+  border: 1px solid var(--highlight-color);
+}
 header {
   display: flex;
   justify-content: space-between;
   padding: 0 1rem;
 }
 
-.header-logo {
-  font-size: 2rem;
+h1,
+h2 {
   letter-spacing: 0.2rem;
   text-transform: uppercase;
   font-weight:lighter;
+}
+
+h2 {
+}
+
+.header-logo {
+  font-size: 2rem;
 }
 
 .categories {
   text-align: center;
 }
 
-
-main {
+.main-container {
   display: flex;
 }
 
@@ -134,7 +152,36 @@ main {
   margin-right: 1rem;
 }
 
-.add-bookmark__container {
-  width: 60vw;
-  margin: auto;
+/* FORMS */
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+.add-bookmark__container {
+  
+}
+
+input[type=text] {
+  background: transparent;
+  border: var(--border);
+  color: var(--tertiary-color);
+  font-size: 1.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+input[type=text]:focus {
+  color: var(--highlight-color);
+}
+
+.add-bookmark__label > * {
+  display: block;
+}
+
+.add-bookmark__row {
+  display: flex;
+}
+
