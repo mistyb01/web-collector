@@ -50,7 +50,7 @@ const App:FC = () => {
           </div>
         </header>
           <main className="form-container">
-            <AddBookmark handleAddToBookmarks={handleAddToBookmarks} closeForm={() => setShowAddBookmark(false)}/>
+            <AddBookmark handleAddToBookmarks={handleAddToBookmarks} closeForm={() => setShowAddBookmark(false)} categoryList={categoryList}/>
           </main>
         </>}
       {!showAddBookmark &&

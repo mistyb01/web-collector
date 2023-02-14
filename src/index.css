@@ -191,3 +191,20 @@ input[type=text]:focus {
   display: flex;
 }
 
+.add-bookmark__category-options li {
+  display: inline;
+}
+
+.form-button-category {
+  font-size: 1rem;
+  border: var(--border);
+  border-radius: 100vh;
+  background-color: var(--secondary-color);
+  color: var(--highlight-color);
+  padding: 0.5rem;
+}
+
+.form-button-category--new {
+  background-color: transparent;
+  color: var(--highlight-color);
+}
