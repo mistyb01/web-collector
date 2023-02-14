@@ -85,6 +85,7 @@ h2 {
 }
 
 h2 {
+  color: var(--highlight-color);
 }
 
 .header-logo {
@@ -179,6 +180,11 @@ input[type=text]:focus {
 
 .add-bookmark__label > * {
   display: block;
+}
+
+.add-bookmark__label span {
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 
 .add-bookmark__row {

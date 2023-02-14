@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FC } from 'react';
+import { Link } from './@types/app';
 import Bookmarks from './Bookmarks';
 import Categories from './Categories';
 import Tags from './Tags';
 import AddBookmark from './AddBookmark';
-import bookmarkData from './data/static-data';
+import mockData from './data/static-data';
+import { useLocalStorage } from 'usehooks-ts';
 
 const App:FC = () => {
   
+  const [bookmarkData, setBookmarkData] = useLocalStorage('bookmarkData', mockData);
   const [category, setCategory] = useState('code');
   const [tag, setTag] = useState('all');
   const [showAddBookmark, setShowAddBookmark] = useState(false);
   
+  const test:Link = {name: "test", url: "https://developer.mozilla.org/en-US/", description:"", category: "code", tag: "official docs"};
+
   const categoryList = Array.from(new Set(
     bookmarkData.map((bookmark) => bookmark.category)
     ));
@@ -28,6 +33,10 @@ const App:FC = () => {
     setTag(e.currentTarget.id);
     }
   }
+
+  function handleAddToBookmarks(newData:Link) {
+    setBookmarkData([...bookmarkData, newData]);
+  }
   
   return (
     <div className="app">
@@ -35,13 +44,13 @@ const App:FC = () => {
       {showAddBookmark && 
         <>
          <header>
-          <h1 className="header-logo">web collector</h1>
+          <h1 className="header-logo"></h1>
           <div className="header-buttons horizontal-space">
             <button className="header__button" onClick={() => setShowAddBookmark(!showAddBookmark)}>Close</button>
           </div>
         </header>
           <main className="form-container">
-            <AddBookmark/>
+            <AddBookmark handleAddToBookmarks={handleAddToBookmarks} closeForm={() => setShowAddBookmark(false)}/>
           </main>
         </>}
       {!showAddBookmark &&
