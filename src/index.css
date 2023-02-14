@@ -178,6 +178,17 @@ input[type=text]:focus {
   color: var(--highlight-color);
 }
 
+.radio-label { position: relative; }
+
+.radio-label input {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio-label:focus-within {
+  outline: 1px solid orange;
+}
+
 .add-bookmark__label > * {
   display: block;
 }

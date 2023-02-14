@@ -11,7 +11,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
     
     const [name, setName] = useState('');
     const [url, setUrl] = useState('');
-    const [category, setCategory] = useState('');
+    const [selectedCategory, setCategory] = useState('');
     const [tag, setTag] = useState('');
     const [description, setDescription] = useState('');
 
@@ -24,7 +24,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
             name: name,
             url: url,
             description: description,
-            category: category,
+            category: selectedCategory,
             tag: tag
         }
         props.handleAddToBookmarks(newBookmark);
@@ -56,14 +56,17 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
                     <label className='add-bookmark__label'>
                         <span>Category</span>
                         <div className='add-bookmark__category-options horizontal-space'>
-                            <label><input type="radio" name="category" value="new" checked={showCategoryInput} onChange={() => {setCategory(''); setShowCategoryInput(!showCategoryInput)}} />+</label>
+                            <label className="radio-label"><input type="radio" name="category" value="new" checked={showCategoryInput} onChange={() => {setCategory(''); setShowCategoryInput(!showCategoryInput)}} />
+                            +</label>
                             {props.categoryList.map((category) => {
                                 return (
-                                <label><input type="radio" name="category" value={category} onChange={(e) => {setShowCategoryInput(false); setCategory(e.target.value)}}/>{category}</label>
+                                    <label className="radio-label">
+                                    <input type="radio" name="category" value={category} onChange={(e) => {setShowCategoryInput(false); setCategory(e.target.value)}}/>
+                                    {category}</label>
                                 )
                             })}
                         </div>
-                        {showCategoryInput && <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} />}
+                        {showCategoryInput && <input type="text" value={selectedCategory} onChange={(e) => setCategory(e.target.value)} />}
                     </label>
                     <label className='add-bookmark__label'>
                         <span>Tags</span>
