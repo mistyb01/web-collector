@@ -133,3 +133,8 @@ main {
   content: '×';
   margin-right: 1rem;
 }
+
+.add-bookmark__container {
+  width: 60vw;
+  margin: auto;
+}
