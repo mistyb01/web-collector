@@ -4,6 +4,7 @@ import { Link } from './@types/app';
 interface Props {
     handleAddToBookmarks: Function;
     closeForm: Function;
+    categoryList: string[]
 }
   
 export const AddBookmark: React.FC<Props> = (props: Props) => {
@@ -13,6 +14,8 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
     const [category, setCategory] = useState('');
     const [tag, setTag] = useState('');
     const [description, setDescription] = useState('');
+
+    const [showCategoryInput, setShowCategoryInput] = useState(false);
 
 
     function submitBookmark(e: FormEvent<HTMLFormElement>) {
@@ -35,6 +38,8 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
 
     return (
         <div className='add-bookmark__container vertical-space'>
+
+
             <h2>new bookmark</h2>
             <form onSubmit={submitBookmark} className='add-bookmark__form vertical-space'>
                 <div className='add-bookmark__row horizontal-space'>
@@ -50,7 +55,15 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
                 <div className='add-bookmark__row horizontal-space'>
                     <label className='add-bookmark__label'>
                         <span>Category</span>
-                        <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
+                        <div className='add-bookmark__category-options horizontal-space'>
+                            <label><input type="radio" name="category" value="new" checked={showCategoryInput} onChange={() => {setCategory(''); setShowCategoryInput(!showCategoryInput)}} />+</label>
+                            {props.categoryList.map((category) => {
+                                return (
+                                <label><input type="radio" name="category" value={category} onChange={(e) => {setShowCategoryInput(false); setCategory(e.target.value)}}/>{category}</label>
+                                )
+                            })}
+                        </div>
+                        {showCategoryInput && <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} />}
                     </label>
                     <label className='add-bookmark__label'>
                         <span>Tags</span>
