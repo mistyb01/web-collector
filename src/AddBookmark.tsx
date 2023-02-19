@@ -1,10 +1,12 @@
 import React, { FormEvent, ReactEventHandler, useState }  from 'react';
 import { Link } from './@types/app';
+import Creatable from 'react-select/creatable';
 
 interface Props {
     handleAddToBookmarks: Function;
     closeForm: Function;
-    categoryList: string[]
+    categoryList: string[];
+    bookmarkData: Link[];
 }
   
 export const AddBookmark: React.FC<Props> = (props: Props) => {
@@ -14,9 +16,11 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
     const [selectedCategory, setCategory] = useState('');
     const [tag, setTag] = useState('');
     const [description, setDescription] = useState('');
-
+    
     const [showCategoryInput, setShowCategoryInput] = useState(false);
 
+    const filteredBookmarks = props.bookmarkData.filter(bookmark => bookmark.category === selectedCategory);
+    const tags = Array.from(new Set(filteredBookmarks.map(bookmark => bookmark.tag)));
 
     function submitBookmark(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -65,7 +69,9 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
                     </label>
                     <label className='add-bookmark__label'>
                         <span>Tags</span>
-                        <input type="text" value={tag} onChange={(e) => setTag(e.target.value)}/>
+                        <Creatable
+                            options={tags.map(tag => ({label: tag, value: tag}))}
+                            onChange={(opt) => setTag(opt!.value)}/>
                     </label>
                     <label className='add-bookmark__label'>
                         <span>Description (optional)</span>
