@@ -23,7 +23,7 @@
 }
 
 .vertical-space > * + * {
-  margin-top: 1rem;
+  margin-top: var(--custom-space, 1rem);
 }
 /*  */
 
@@ -166,6 +166,12 @@ h2 {
   
 }
 
+.add-bookmark__form > * { display: block; }
+
+.add-bookmark__form {
+  --custom-space: 1rem;
+}
+
 input[type=text] {
   background: transparent;
   border: var(--border);
@@ -192,6 +198,7 @@ input[type=text]:focus {
 
 .add-bookmark__label > * {
   display: block;
+  --custom-space: 0.5rem;
 }
 
 .add-bookmark__label span {
@@ -217,3 +224,4 @@ input[type=text]:focus {
 .category-option--new {
   color: var(--highlight-color);
 }
+

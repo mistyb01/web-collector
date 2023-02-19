@@ -38,11 +38,8 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
 
     return (
         <div className='add-bookmark__container vertical-space'>
-
-
             <h2>new bookmark</h2>
             <form onSubmit={submitBookmark} className='add-bookmark__form vertical-space'>
-                <div className='add-bookmark__row horizontal-space'>
                     <label className='add-bookmark__label'>
                         <span>Name of Page</span>
                         <input type="text" value={name} onChange={(e) => setName(e.target.value) } />
@@ -51,11 +48,9 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
                         <span>URL</span>
                         <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} />
                     </label>
-                </div>
-                <div className='add-bookmark__row horizontal-space'>
-                    <label className='add-bookmark__label'>
+                    <label className='add-bookmark__label vertical-space'>
                         <span>Category</span>
-                        <div className='add-bookmark__category-options horizontal-space vertical-space'>
+                        <div className='add-bookmark__category-options horizontal-space '>
                             <label className="radio-label category-option category-option--new"><input type="radio" name="category" value="new" checked={showCategoryInput} onChange={() => {setCategory(''); setShowCategoryInput(!showCategoryInput)}} />
                             +</label>
                             {props.categoryList.map((category) => {
@@ -65,20 +60,17 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
                                     {category}</label>
                                 )
                             })}
-                        </div>
+                            </div>
                         {showCategoryInput && <input type="text" value={selectedCategory} onChange={(e) => setCategory(e.target.value)} />}
                     </label>
                     <label className='add-bookmark__label'>
                         <span>Tags</span>
                         <input type="text" value={tag} onChange={(e) => setTag(e.target.value)}/>
                     </label>
-                </div>
-                <div className='add-bookmark__row'>
                     <label className='add-bookmark__label'>
                         <span>Description (optional)</span>
                         <input type="text" value={description} onChange={(e) => setDescription(e.target.value)}/>
                     </label>
-                </div>
                 <button type="submit" className="form-button">submit</button>
             </form>
         </div>
