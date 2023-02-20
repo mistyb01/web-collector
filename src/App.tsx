@@ -67,7 +67,7 @@ const App:FC = () => {
           </main>
           : editMode ? 
           <main className="edit-container">
-            <EditMode/>
+            <EditMode bookmarkData={bookmarkData} categoryList={categoryList}/>
           </main>
           : 
           <main className="main-container horizontal-space">
