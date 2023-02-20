@@ -18,8 +18,6 @@ const App:FC = () => {
 
   const [editMode, setEditMode] = useState(false);
   
-  const test:Link = {name: "test", url: "https://developer.mozilla.org/en-US/", description:"", category: "code", tag: "official docs"};
-
   const categoryList = Array.from(new Set(
     bookmarkData.map((bookmark) => bookmark.category)
     ));
@@ -68,7 +66,7 @@ const App:FC = () => {
             <AddBookmark handleAddToBookmarks={handleAddToBookmarks} closeForm={() => setShowAddBookmark(false)} categoryList={categoryList} bookmarkData={bookmarkData}/>
           </main>
           : editMode ? 
-          <main className="form-container">
+          <main className="edit-container">
             <EditMode/>
           </main>
           : 

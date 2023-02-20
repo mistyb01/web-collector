@@ -225,3 +225,10 @@ input[type=text]:focus {
   color: var(--highlight-color);
 }
 
+/* edit mode */
+
+.edit-container {
+  text-align: center;
+  width: 70vw;
+  margin: 0 auto;
+}
