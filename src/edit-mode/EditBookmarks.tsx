@@ -10,7 +10,7 @@ export const EditBookmarks: React.FC<Props> = (props) => {
 
   return (
     <div className="edit-bookmarks-container">
-        <h1>bookmarks</h1>
+        <h2>bookmarks</h2>
     </div>
   );
 }

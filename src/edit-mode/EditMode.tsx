@@ -1,27 +1,28 @@
 import React, {useState}  from 'react';
 import { Link } from '../@types/app';
 import EditBookmarks from './EditBookmarks';
+import EditCategories from './EditCategories';
+import EditTags from './EditTags';
 
 interface Props {
 }
 
 export const EditMode: React.FC<Props> = (props) => {
 
-    const [bookmarkMode, setBookmarkMode] = useState(true);
-    const [tagMode, setTagMode] = useState(false);
-    const [categoryMode, setCategoryMode] = useState(false);
+    const [mode, setMode] = useState('bookmarks');
 
 
   return (
-    
     <div className="edit-mode-container">
-        <h1>EDIT</h1>
+        <h2>EDIT</h2>
         <ul>
-            <button>Bookmarks</button>
-            <button>Tags</button>
-            <button>Categories</button>
+            <button onClick={() => setMode('bookmarks')}>Bookmarks</button>
+            <button onClick={() => setMode('tags')}>Tags</button>
+            <button onClick={() => setMode('categories')}>Categories</button>
         </ul>
-        {bookmarkMode && <EditBookmarks/>}
+        {mode === 'bookmarks' ? <EditBookmarks/> :
+        mode === 'tags' ? <EditTags/> : 
+        mode === 'categories' ? <EditCategories/> : <></>}
     </div>
   );
 }
