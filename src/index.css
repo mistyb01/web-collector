@@ -228,7 +228,21 @@ input[type=text]:focus {
 /* edit mode */
 
 .edit-container {
-  text-align: center;
   width: 70vw;
   margin: 0 auto;
+}
+
+.editor-list {
+
+}
+
+.editor-list li {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-items: start;
+  column-gap: 1fr;
+}
+
+.editor-list input[type=text] {
+  width: 100%;
 }
