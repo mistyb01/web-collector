@@ -18,17 +18,6 @@ export const EditBookmarks: React.FC<Props> = (props) => {
         filteredBookmarks = props.bookmarkData.filter(bookmark => bookmark.category === selectedCategory);
     }
 
-    function updateBookmarkData(newValues: Link) {
-        const editingBookmark = props.bookmarkData.find(element => element.id === newValues.id);
-        if (editingBookmark) {
-            editingBookmark.name = newValues.name;
-            editingBookmark.url = newValues.url;
-            editingBookmark.category = newValues.category;
-            editingBookmark.tag = newValues.tag;
-        }
-        props.handleEditBookmarks(props.bookmarkData);
-    }
-
     return (
     <div className="edit-bookmarks-container vertical-space">
         <Select 
@@ -52,7 +41,7 @@ export const EditBookmarks: React.FC<Props> = (props) => {
                 bookmarkUrl={bookmark.url} 
                 bookmarkCategory={bookmark.category} 
                 bookmarkTag={bookmark.tag}
-                updateBookmarkData={updateBookmarkData}
+                updateBookmarkData={(newValues: Link) => props.handleEditBookmarks(newValues)}
             />
         )}
         </ul>

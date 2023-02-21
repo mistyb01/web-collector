@@ -22,8 +22,9 @@ export const EditorRow: React.FC<Props> = (props) => {
     const [newTag, setTag] = useState(props.bookmarkTag);
 
     function handleEdit() {
-        let newValues = {name: newName, url: newUrl, category: newCategory, tag: newTag}
+        let newValues = {id: props.bookmarkId, name: newName, url: newUrl, category: newCategory, tag: newTag}
         props.updateBookmarkData(newValues);
+        setShowEditFields(false);
     }
 
   return (
@@ -35,7 +36,7 @@ export const EditorRow: React.FC<Props> = (props) => {
         <input type="text" onChange={(e) => setCategory(e.target.value)} className="editing-input" value={newCategory}/>
         <input type="text" onChange={(e) => setTag(e.target.value)} className="editing-input" value={newTag}/>
         <div className="editor-options horizontal-space">
-            <button onClick={handleEdit} className="editor-options__button">submit</button>
+            <button onClick={handleEdit} className="editor-options__button">save</button>
             <button onClick={() => setShowEditFields(false)} className="editor-options__button">cancel</button>
         </div>
         </>

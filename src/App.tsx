@@ -39,8 +39,17 @@ const App:FC = () => {
     setBookmarkData([...bookmarkData, newData]);
   }
 
-  function handleEditBookmarks(updatedData:Link[]) {
-    setBookmarkData(updatedData);
+  function handleEditBookmarks(newValues:Link) {
+    // idea: update the properties directly here.
+    const editingBookmark = bookmarkData.find(element => element.id === newValues.id);
+    if (editingBookmark) {
+        editingBookmark.name = newValues.name;
+        editingBookmark.url = newValues.url;
+        editingBookmark.category = newValues.category;
+        editingBookmark.tag = newValues.tag;
+    }
+    setBookmarkData(bookmarkData);
+
   }
   
   return (
