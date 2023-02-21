@@ -3,24 +3,41 @@ import { Link } from '../@types/app';
 import EditBookmarks from './EditBookmarks';
 
 interface Props {
+    bookmarkId: number,
     bookmarkName: string,
     bookmarkUrl: string,
     bookmarkCategory: string,
-    bookmarkTag: string
+    bookmarkTag: string,
+    updateBookmarkData: Function
 }
 
 export const EditorRow: React.FC<Props> = (props) => {
 
     const [showEditFields, setShowEditFields] = useState(false);
 
+    // new values
+    const [newName, setName] = useState(props.bookmarkName);
+    const [newUrl, setUrl] = useState(props.bookmarkUrl);
+    const [newCategory, setCategory] = useState(props.bookmarkCategory);
+    const [newTag, setTag] = useState(props.bookmarkTag);
+
+    function handleEdit() {
+        let newValues = {name: newName, url: newUrl, category: newCategory, tag: newTag}
+        props.updateBookmarkData(newValues);
+    }
+
   return (
     <li className='editor-list__row'>
         {showEditFields ? 
         <>
-        <input type="text" className="editing-input" value={props.bookmarkName}/>
-        <input type="text" className="editing-input" value={props.bookmarkUrl}/>
-        <input type="text" className="editing-input" value={props.bookmarkCategory}/>
-        <input type="text" className="editing-input" value={props.bookmarkTag}/>
+        <input type="text" onChange={(e) => setName(e.target.value)} className="editing-input" value={newName}/>
+        <input type="text" onChange={(e) => setUrl(e.target.value)} className="editing-input" value={newUrl}/>
+        <input type="text" onChange={(e) => setCategory(e.target.value)} className="editing-input" value={newCategory}/>
+        <input type="text" onChange={(e) => setTag(e.target.value)} className="editing-input" value={newTag}/>
+        <div className="editor-options horizontal-space">
+            <button onClick={handleEdit} className="editor-options__button">submit</button>
+            <button onClick={() => setShowEditFields(false)} className="editor-options__button">cancel</button>
+        </div>
         </>
         : 
         <>
@@ -28,13 +45,13 @@ export const EditorRow: React.FC<Props> = (props) => {
         <input type="text" value={props.bookmarkUrl}/>
         <span>{props.bookmarkCategory}</span>
         <span>{props.bookmarkTag}</span>
-        </>}
         <div className="editor-options horizontal-space">
-            <button onClick={() => setShowEditFields(!showEditFields)} className="editor-options__button editor-options__edit">
-            {showEditFields ? 'close' : 'edit'}
-            </button>
-            <button className="editor-options__button editor-options__delete">{showEditFields ? 'cancel' : 'delete'}</button>
+            <button onClick={() => setShowEditFields(true)} className="editor-options__button">edit</button>
+            <button className="editor-options__button">delete</button>
         </div>
+        </>
+        }
+       
     </li>
   );
 }
