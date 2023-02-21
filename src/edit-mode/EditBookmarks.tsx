@@ -11,7 +11,6 @@ interface Props {
 export const EditBookmarks: React.FC<Props> = (props) => {
 
     const [selectedCategory, setSelectedCategory] = useState('all');
-    const [showEditFields, setShowEditFields] = useState('false');
 
     let filteredBookmarks = props.bookmarkData;
     if (selectedCategory !== 'all') {

@@ -279,3 +279,11 @@ input[type=text]:focus {
   border: var(--border);
   color: var(--fg-color);
 }
+
+input[type=text].editing-input {
+  color: var(--highlight-color);
+}
+
+input[type=text].editing-input:focus {
+  color: #fff;
+}
