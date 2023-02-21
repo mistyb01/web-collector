@@ -5,7 +5,8 @@ import EditorRow from './EditorRow';
 
 interface Props {
   bookmarkData: Link[],
-  categoryList: string[]
+  categoryList: string[],
+  handleEditBookmarks: Function
 }
 
 export const EditBookmarks: React.FC<Props> = (props) => {
@@ -25,6 +26,7 @@ export const EditBookmarks: React.FC<Props> = (props) => {
             editingBookmark.category = newValues.category;
             editingBookmark.tag = newValues.tag;
         }
+        props.handleEditBookmarks(props.bookmarkData);
     }
 
     return (

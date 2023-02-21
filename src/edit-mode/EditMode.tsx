@@ -6,7 +6,8 @@ import EditTags from './EditTags';
 
 interface Props {
     bookmarkData: Link[],
-    categoryList: string[]
+    categoryList: string[],
+    handleEditBookmarks: Function
 }
 
 export const EditMode: React.FC<Props> = (props) => {
@@ -20,7 +21,7 @@ export const EditMode: React.FC<Props> = (props) => {
             <button className={`${mode === 'tags' ? 'header__button header__button--selected' : 'header__button'}`} onClick={() => setMode('tags')}>Tags</button>
             <button className={`${mode === 'categories' ? 'header__button header__button--selected' : 'header__button'}`} onClick={() => setMode('categories')}>Categories</button>
         </ul>
-        {mode === 'bookmarks' ? <EditBookmarks bookmarkData={props.bookmarkData} categoryList={props.categoryList}/> :
+        {mode === 'bookmarks' ? <EditBookmarks handleEditBookmarks={props.handleEditBookmarks} bookmarkData={props.bookmarkData} categoryList={props.categoryList}/> :
         mode === 'tags' ? <EditTags/> : 
         mode === 'categories' ? <EditCategories/> : <></>}
     </div>

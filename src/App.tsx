@@ -38,6 +38,10 @@ const App:FC = () => {
   function handleAddToBookmarks(newData:Link) {
     setBookmarkData([...bookmarkData, newData]);
   }
+
+  function handleEditBookmarks(updatedData:Link[]) {
+    setBookmarkData(updatedData);
+  }
   
   return (
     <div className="app">
@@ -67,7 +71,7 @@ const App:FC = () => {
           </main>
           : editMode ? 
           <main className="edit-container">
-            <EditMode bookmarkData={bookmarkData} categoryList={categoryList}/>
+            <EditMode bookmarkData={bookmarkData} categoryList={categoryList} handleEditBookmarks={handleEditBookmarks}/>
           </main>
           : 
           <main className="main-container horizontal-space">
