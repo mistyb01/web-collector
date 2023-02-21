@@ -261,13 +261,17 @@ input[type=text]:focus {
 
 .editor-list__row {
   padding: 1rem 0.5rem;
-  transition: 0.25s ease-in;
+  transition: 0.2s ease-in;
 }
 
 .editor-list__row:hover {
   color: var(--highlight-color);
+}
+
+.editor-list__row:nth-child(even) {
   background-color: var(--light-bg-color);
 }
+
 
 .editor-options__button {
   padding: 0.25rem;
