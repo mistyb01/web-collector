@@ -1,6 +1,7 @@
 import React, { FormEvent, ReactEventHandler, useState }  from 'react';
 import { Link } from './@types/app';
 import Creatable from 'react-select/creatable';
+var uniqid = require('uniqid'); 
 
 interface Props {
     handleAddToBookmarks: Function;
@@ -25,7 +26,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
     function submitBookmark(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const newBookmark:Link = {
-            id: 99, //temp! replace with an ID generator value
+            id: uniqid(), 
             name: name,
             url: url,
             description: description,
@@ -60,7 +61,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
                             +</label>
                             {props.categoryList.map((category) => {
                                 return (
-                                    <label className="radio-label category-option">
+                                    <label key={uniqid()} className="radio-label category-option">
                                     <input type="radio" name="category" value={category} onChange={(e) => {setShowCategoryInput(false); setCategory(e.target.value)}}/>
                                     {category}</label>
                                 )

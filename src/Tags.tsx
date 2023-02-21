@@ -1,5 +1,6 @@
 import React, { ReactEventHandler }  from 'react';
 import { Link } from './@types/app';
+var uniqid = require('uniqid');
 
 interface Props {
     bookmarkData: Link[],
@@ -19,9 +20,9 @@ export const Tags: React.FC<Props> = (props) => {
             <ul className='tags-list'>
                 {tags.map((tag) => {
                     if (tag === props.tag) {
-                        return (<li className='tags-list__item tags-list__item--selected' onClick={props.handleTagChange} id={tag}>{tag}</li>);
+                        return (<li key={uniqid()} className='tags-list__item tags-list__item--selected' onClick={props.handleTagChange} id={tag}>{tag}</li>);
                     } 
-                    return (<li className='tags-list__item' onClick={props.handleTagChange} id={tag}>{tag}</li>);
+                    return (<li key={uniqid()} className='tags-list__item' onClick={props.handleTagChange} id={tag}>{tag}</li>);
                 })}
             </ul>
       </div>

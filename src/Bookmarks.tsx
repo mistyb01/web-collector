@@ -1,5 +1,6 @@
 import React  from 'react';
 import { Link } from './@types/app';
+var uniqid = require('uniqid');
 
 interface Props {
   bookmarkData: Link[],
@@ -19,7 +20,7 @@ export const Bookmarks: React.FC<Props> = (props) => {
       <ul className="bookmarks-list">
         {filteredBookmarks.map((bookmark) => {
             return (
-              <li className="bookmarks-list__item">
+              <li key={uniqid()} className="bookmarks-list__item">
                 <a href={bookmark.url} target="_blank">{bookmark.name}</a>
               </li>
             );

@@ -1,5 +1,5 @@
 import React, { ReactEventHandler }  from 'react';
-import { Link } from './@types/app';
+var uniqid = require('uniqid');
 
 interface Props {
     categoryList: string[];
@@ -9,14 +9,13 @@ interface Props {
   
 export const Categories: React.FC<Props> = (props) => {
  
-
     return (
         <div className='categories horizontal-space'>
         {props.categoryList.map((category) => {
           if (category === props.category) {
-         return (<button className='header__button header__button--selected' id={category} onClick={props.handleCategoryChange}>{category}</button>);
+         return (<button key={uniqid()}  className='header__button header__button--selected' id={category} onClick={props.handleCategoryChange}>{category}</button>);
           }
-         return (<button className='header__button' id={category} onClick={props.handleCategoryChange}>{category}</button>);
+         return (<button key={uniqid()}  className='header__button' id={category} onClick={props.handleCategoryChange}>{category}</button>);
         })}
       </div>
     )
