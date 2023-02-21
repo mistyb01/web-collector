@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from '../@types/app';
 import Select from 'react-select';
 import EditorRow from './EditorRow';
@@ -12,11 +12,15 @@ interface Props {
 export const EditBookmarks: React.FC<Props> = (props) => {
 
     const [selectedCategory, setSelectedCategory] = useState('all');
+    const [filteredBookmarks, setFilteredBookmarks] = useState(props.bookmarkData);
+ 
+    useEffect(() => {
+        console.log('change');
+        if (selectedCategory !== 'all') {
+            setFilteredBookmarks(props.bookmarkData.filter(bookmark => bookmark.category === selectedCategory));
+        }
+    }, [selectedCategory])
 
-    let filteredBookmarks = props.bookmarkData;
-    if (selectedCategory !== 'all') {
-        filteredBookmarks = props.bookmarkData.filter(bookmark => bookmark.category === selectedCategory);
-    }
 
     return (
     <div className="edit-bookmarks-container vertical-space">
@@ -36,6 +40,7 @@ export const EditBookmarks: React.FC<Props> = (props) => {
             </li>
         {filteredBookmarks.map((bookmark) => 
             <EditorRow 
+                key={bookmark.id}
                 bookmarkId={bookmark.id} 
                 bookmarkName={bookmark.name}  
                 bookmarkUrl={bookmark.url} 

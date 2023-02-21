@@ -1,4 +1,4 @@
-import React, {useState}  from 'react';
+import React, {useState, useEffect}  from 'react';
 import { Link } from '../@types/app';
 import EditBookmarks from './EditBookmarks';
 
@@ -14,8 +14,7 @@ interface Props {
 export const EditorRow: React.FC<Props> = (props) => {
 
     const [showEditFields, setShowEditFields] = useState(false);
-
-    // new values
+    
     const [newName, setName] = useState(props.bookmarkName);
     const [newUrl, setUrl] = useState(props.bookmarkUrl);
     const [newCategory, setCategory] = useState(props.bookmarkCategory);
