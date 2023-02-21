@@ -25,6 +25,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
     function submitBookmark(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const newBookmark:Link = {
+            id: 99, //temp! replace with an ID generator value
             name: name,
             url: url,
             description: description,
