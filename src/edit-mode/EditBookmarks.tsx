@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from '../@types/app';
 import Select from 'react-select';
+import EditorRow from './EditorRow';
 
 interface Props {
   bookmarkData: Link[],
@@ -10,6 +11,7 @@ interface Props {
 export const EditBookmarks: React.FC<Props> = (props) => {
 
     const [selectedCategory, setSelectedCategory] = useState('all');
+    const [showEditFields, setShowEditFields] = useState('false');
 
     let filteredBookmarks = props.bookmarkData;
     if (selectedCategory !== 'all') {
@@ -33,16 +35,7 @@ export const EditBookmarks: React.FC<Props> = (props) => {
                 <span>options</span>
             </li>
         {filteredBookmarks.map((bookmark) => 
-            <li className='editor-list__row'>
-                <span>{bookmark.name}</span>
-                <input type="text" value={bookmark.url}/>
-                <span>{bookmark.category}</span>
-                <span>{bookmark.tag}</span>
-                <div className="editor-options horizontal-space">
-                    <button className="editor-options__button editor-options__edit">edit</button>
-                    <button className="editor-options__button editor-options__delete">delete</button>
-                </div>
-            </li>
+            <EditorRow bookmarkName={bookmark.name}  bookmarkUrl={bookmark.url} bookmarkCategory={bookmark.category} bookmarkTag={bookmark.tag}/>
         )}
         </ul>
     </div>
