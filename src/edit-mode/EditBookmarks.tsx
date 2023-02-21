@@ -24,19 +24,24 @@ export const EditBookmarks: React.FC<Props> = (props) => {
             onChange={(opt) => setSelectedCategory(opt!.value)}
             placeholder={'filter by category'}
         />
-        <ul className="editor-list vertical-space">
-            <li className="editor-list__heading horizontal-space">
+        <ul className="editor-list">
+            <li className="editor-list__heading">
                 <span>name</span>
                 <span>url</span>
                 <span>category</span>
                 <span>tags</span>
+                <span>options</span>
             </li>
         {filteredBookmarks.map((bookmark) => 
-            <li className='horizontal-space'>
+            <li className='editor-list__row'>
                 <span>{bookmark.name}</span>
                 <input type="text" value={bookmark.url}/>
                 <span>{bookmark.category}</span>
                 <span>{bookmark.tag}</span>
+                <div className="editor-options horizontal-space">
+                    <button className="editor-options__button editor-options__edit">edit</button>
+                    <button className="editor-options__button editor-options__delete">delete</button>
+                </div>
             </li>
         )}
         </ul>

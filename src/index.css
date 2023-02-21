@@ -8,6 +8,7 @@
 
 :root {
   --main-bg-color:#051923;
+  --light-bg-color: #0d2937;
   --lighter-bg-color: #003554;
   --tertiary-color: #006494;
   --secondary-color: #0582CA;
@@ -56,7 +57,8 @@ button {
   border: var(--border); 
 }
 
-.header__button:hover {
+.header__button:hover,
+.editor-options__button:hover {
   color: var(--highlight-color);
   cursor: pointer;
 }
@@ -176,7 +178,7 @@ input[type=text] {
   background: transparent;
   border: var(--border);
   color: var(--tertiary-color);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   padding: 0.25rem 0.5rem;
 }
 
@@ -229,7 +231,8 @@ input[type=text]:focus {
 
 .edit-container {
   width: 70vw;
-  margin: 0 auto;
+  margin: auto;
+  margin-bottom: 3rem;
 }
 
 .editor-list {
@@ -238,11 +241,37 @@ input[type=text]:focus {
 
 .editor-list li {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   justify-items: start;
-  column-gap: 1fr;
+  align-items: center;
+  column-gap: 1rem;
 }
 
 .editor-list input[type=text] {
   width: 100%;
+}
+
+.editor-list__heading {
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0rem 0.5rem;
+}
+
+.editor-list__row {
+  padding: 1rem 0.5rem;
+  transition: 0.25s ease-in;
+}
+
+.editor-list__row:hover {
+  color: var(--highlight-color);
+  background-color: var(--light-bg-color);
+}
+
+.editor-options__button {
+  padding: 0.25rem;
+  background: transparent;
+  border: var(--border);
+  color: var(--fg-color);
 }
