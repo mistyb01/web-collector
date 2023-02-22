@@ -6,21 +6,28 @@ import EditorRow from './EditorRow';
 interface Props {
   bookmarkData: Link[],
   categoryList: string[],
-  handleEditBookmarks: Function
+  updateBookmarkData: Function
 }
 
 export const EditBookmarks: React.FC<Props> = (props) => {
 
     const [selectedCategory, setSelectedCategory] = useState('all');
-    const [filteredBookmarks, setFilteredBookmarks] = useState(props.bookmarkData);
- 
-    useEffect(() => {
-        console.log('change');
-        if (selectedCategory !== 'all') {
-            setFilteredBookmarks(props.bookmarkData.filter(bookmark => bookmark.category === selectedCategory));
-        }
-    }, [selectedCategory])
 
+    let filteredBookmarks = props.bookmarkData;
+    if (selectedCategory !== 'all') {
+        filteredBookmarks = filteredBookmarks.filter(bookmark => bookmark.category === selectedCategory);
+    }
+  
+    function handleEditBookmarks(newValues:Link) {
+        const editingBookmark = props.bookmarkData.find(element => element.id === newValues.id);
+        if (editingBookmark) {
+            editingBookmark.name = newValues.name;
+            editingBookmark.url = newValues.url;
+            editingBookmark.category = newValues.category;
+            editingBookmark.tag = newValues.tag;
+        }
+        props.updateBookmarkData(props.bookmarkData);
+      }
 
     return (
     <div className="edit-bookmarks-container vertical-space">
@@ -46,7 +53,7 @@ export const EditBookmarks: React.FC<Props> = (props) => {
                 bookmarkUrl={bookmark.url} 
                 bookmarkCategory={bookmark.category} 
                 bookmarkTag={bookmark.tag}
-                updateBookmarkData={(newValues: Link) => props.handleEditBookmarks(newValues)}
+                updateBookmarkData={(newValues: Link) => handleEditBookmarks(newValues)}
             />
         )}
         </ul>
