@@ -35,23 +35,19 @@ const App:FC = () => {
     }
   }
 
+  // note: what if there was a general function in App.js
+  // that simply updates bookmarkData with the new array it was given?
+  // so the add, edit and delete functions can be moved and not passed as a prop?
+
   function handleAddToBookmarks(newData:Link) {
     setBookmarkData([...bookmarkData, newData]);
   }
 
-  function handleEditBookmarks(newValues:Link) {
-    // idea: update the properties directly here.
-    const editingBookmark = bookmarkData.find(element => element.id === newValues.id);
-    if (editingBookmark) {
-        editingBookmark.name = newValues.name;
-        editingBookmark.url = newValues.url;
-        editingBookmark.category = newValues.category;
-        editingBookmark.tag = newValues.tag;
-    }
-    setBookmarkData(bookmarkData);
-
-  }
   
+  function updateBookmarkData(newData:Link[]) {
+    setBookmarkData(newData);
+  }
+
   return (
     <div className="app">
     
@@ -80,7 +76,7 @@ const App:FC = () => {
           </main>
           : editMode ? 
           <main className="edit-container">
-            <EditMode bookmarkData={bookmarkData} categoryList={categoryList} handleEditBookmarks={handleEditBookmarks}/>
+            <EditMode bookmarkData={bookmarkData} updateBookmarkData={updateBookmarkData} categoryList={categoryList} />
           </main>
           : 
           <main className="main-container horizontal-space">

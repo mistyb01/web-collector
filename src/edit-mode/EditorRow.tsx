@@ -26,6 +26,10 @@ export const EditorRow: React.FC<Props> = (props) => {
         setShowEditFields(false);
     }
 
+    function handleDelete() {
+
+    }
+
   return (
     <li className='editor-list__row'>
         {showEditFields ? 
@@ -47,7 +51,7 @@ export const EditorRow: React.FC<Props> = (props) => {
         <span>{props.bookmarkTag}</span>
         <div className="editor-options horizontal-space">
             <button onClick={() => setShowEditFields(true)} className="editor-options__button">edit</button>
-            <button className="editor-options__button">delete</button>
+            <button onClick={handleDelete} className="editor-options__button">delete</button>
         </div>
         </>
         }
