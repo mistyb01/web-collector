@@ -8,7 +8,8 @@ interface Props {
     bookmarkUrl: string,
     bookmarkCategory: string,
     bookmarkTag: string,
-    updateBookmarkData: Function
+    handleEditBookmarks: Function,
+    handleDeleteBookmark: Function
 }
 
 export const EditorRow: React.FC<Props> = (props) => {
@@ -22,12 +23,8 @@ export const EditorRow: React.FC<Props> = (props) => {
 
     function handleEdit() {
         let newValues = {id: props.bookmarkId, name: newName, url: newUrl, category: newCategory, tag: newTag}
-        props.updateBookmarkData(newValues);
+        props.handleEditBookmarks(newValues);
         setShowEditFields(false);
-    }
-
-    function handleDelete() {
-
     }
 
   return (
@@ -51,7 +48,7 @@ export const EditorRow: React.FC<Props> = (props) => {
         <span>{props.bookmarkTag}</span>
         <div className="editor-options horizontal-space">
             <button onClick={() => setShowEditFields(true)} className="editor-options__button">edit</button>
-            <button onClick={handleDelete} className="editor-options__button">delete</button>
+            <button onClick={() => props.handleDeleteBookmark(props.bookmarkId)} className="editor-options__button">delete</button>
         </div>
         </>
         }

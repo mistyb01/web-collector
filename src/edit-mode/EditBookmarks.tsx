@@ -29,6 +29,12 @@ export const EditBookmarks: React.FC<Props> = (props) => {
         props.updateBookmarkData(props.bookmarkData);
       }
 
+    function handleDeleteBookmark(id:number) {
+        const bookmarkToDelete = props.bookmarkData.findIndex(element => element.id === id);
+        props.bookmarkData.splice(bookmarkToDelete, 1);
+        props.updateBookmarkData(props.bookmarkData);
+    }
+
     return (
     <div className="edit-bookmarks-container vertical-space">
         <Select 
@@ -53,7 +59,8 @@ export const EditBookmarks: React.FC<Props> = (props) => {
                 bookmarkUrl={bookmark.url} 
                 bookmarkCategory={bookmark.category} 
                 bookmarkTag={bookmark.tag}
-                updateBookmarkData={(newValues: Link) => handleEditBookmarks(newValues)}
+                handleEditBookmarks={handleEditBookmarks}
+                handleDeleteBookmark={handleDeleteBookmark}
             />
         )}
         </ul>
