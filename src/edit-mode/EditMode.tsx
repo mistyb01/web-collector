@@ -3,6 +3,7 @@ import { BookmarkType } from '../@types/app';
 import EditBookmarks from './EditBookmarks';
 import EditCategories from './EditCategories';
 import EditTags from './EditTags';
+import { Link } from 'react-router-dom';
 
 interface Props {
     bookmarkData: BookmarkType[],
@@ -19,7 +20,7 @@ export const EditMode: React.FC<Props> = (props) => {
         <>
         <header>
          <div className="header-buttons horizontal-space">
-            <button className="header__button" onClick={() => {}}>Close</button>
+            <Link to='/'><button className="header__button" onClick={() => {}}>Close</button></Link>
           </div>
         </header>
         <div className="edit-mode-container vertical-space">

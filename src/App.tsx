@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FC } from 'react';
 import { BookmarkType } from './@types/app';
-import Bookmarks from './Bookmarks';
 import Categories from './Categories';
-import Tags from './Tags';
 import AddBookmark from './AddBookmark';
 import mockData from './data/static-data';
 import { useLocalStorage } from 'usehooks-ts';
@@ -37,10 +35,6 @@ const App:FC = () => {
     }
   }
 
-  // note: what if there was a general function in App.js
-  // that simply updates bookmarkData with the new array it was given?
-  // so the add, edit and delete functions can be moved and not passed as a prop?
-
   function handleAddToBookmarks(newData:BookmarkType) {
     setBookmarkData([...bookmarkData, newData]);
   }
@@ -61,47 +55,35 @@ const App:FC = () => {
           <Categories categoryList={categoryList} category={category} handleCategoryChange={handleCategoryChange}/>
           <div className="header-buttons horizontal-space">
               <Link to='/add'><button className="header__button">add bookmark</button></Link>
-              <button className="header__button" onClick={() => setEditMode(true)}>edit</button>
+              <Link to='/edit'><button className="header__button">edit</button></Link>
           </div>
         </header>
-       
-      {/* {showAddBookmark ?
-          <main className="form-container">
-            <AddBookmark handleAddToBookmarks={handleAddToBookmarks} closeForm={() => setShowAddBookmark(false)} categoryList={categoryList} bookmarkData={bookmarkData}/>
-          </main>
-          : editMode ? 
-          <main className="edit-container">
-            <EditMode bookmarkData={bookmarkData} updateBookmarkData={updateBookmarkData} categoryList={categoryList} />
-          </main>
-          :  */}
           <main className="main-container horizontal-space">
-
-          <Routes>
-        <Route path='/'
-          element={
-            <Home
-            bookmarkData={bookmarkData} 
-            category={category} 
-            tag={tag} 
-            handleTagChange={handleTagChange}/>
-          }
-          />
-        <Route path='/add' 
-          element={
-            <AddBookmark 
-              handleAddToBookmarks={handleAddToBookmarks} 
-              categoryList={categoryList} 
-              bookmarkData={bookmarkData}/>}/>
-      </Routes>
-
-          {/*moved to main.tsx 
-          <div className="filter-menu">
-            <h3 className="filter-menu__header">filters</h3>
-            <Tags bookmarkData={bookmarkData} category={category} tag={tag} handleTagChange={handleTagChange} />
-          </div>
-          <Bookmarks bookmarkData={bookmarkData} category={category} tag={tag}/>
-           */}
-        </main>
+            <Routes>
+              <Route path='/'
+                element={
+                  <Home
+                  bookmarkData={bookmarkData} 
+                  category={category} 
+                  tag={tag} 
+                  handleTagChange={handleTagChange}/>
+                }/>
+              <Route path='/add' 
+                element={
+                  <AddBookmark 
+                    handleAddToBookmarks={handleAddToBookmarks} 
+                    categoryList={categoryList} 
+                    bookmarkData={bookmarkData}/>
+              }/>
+              <Route path='/edit'
+                element={
+                  <EditMode 
+                    bookmarkData={bookmarkData} 
+                    updateBookmarkData={updateBookmarkData} 
+                    categoryList={categoryList} />
+              }/>
+            </Routes>
+          </main>
     </div>
     </Router>
 
