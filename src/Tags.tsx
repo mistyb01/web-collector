@@ -1,9 +1,9 @@
 import React, { ReactEventHandler }  from 'react';
-import { Link } from './@types/app';
+import { BookmarkType } from './@types/app';
 var uniqid = require('uniqid');
 
 interface Props {
-    bookmarkData: Link[],
+    bookmarkData: BookmarkType[],
     category: string,
     tag: string,
     handleTagChange: ReactEventHandler

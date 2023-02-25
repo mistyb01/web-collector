@@ -1,13 +1,14 @@
 import React, { FormEvent, ReactEventHandler, useState }  from 'react';
-import { Link } from './@types/app';
+import { BookmarkType } from './@types/app';
 import Creatable from 'react-select/creatable';
+import { Link, useNavigate } from 'react-router-dom';
 var uniqid = require('uniqid'); 
+
 
 interface Props {
     handleAddToBookmarks: Function;
-    closeForm: Function;
     categoryList: string[];
-    bookmarkData: Link[];
+    bookmarkData: BookmarkType[];
 }
   
 export const AddBookmark: React.FC<Props> = (props: Props) => {
@@ -16,16 +17,16 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
     const [url, setUrl] = useState('');
     const [selectedCategory, setCategory] = useState('');
     const [tag, setTag] = useState('');
-    const [description, setDescription] = useState('');
-    
+    const [description, setDescription] = useState('');    
     const [showCategoryInput, setShowCategoryInput] = useState(false);
+    const navigate = useNavigate();
 
     const filteredBookmarks = props.bookmarkData.filter(bookmark => bookmark.category === selectedCategory);
     const tags = Array.from(new Set(filteredBookmarks.map(bookmark => bookmark.tag)));
 
     function submitBookmark(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        const newBookmark:Link = {
+        const newBookmark:BookmarkType = {
             id: uniqid(), 
             name: name,
             url: url,
@@ -39,11 +40,13 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
         setCategory('');
         setTag('');
         setDescription('');
-        props.closeForm();
+        // props.closeForm();
+        navigate('/');
     }
 
     return (
         <div className='add-bookmark__container vertical-space'>
+            <Link to='/'><button className="header__button">close</button></Link>
             <h2>new bookmark</h2>
             <form onSubmit={submitBookmark} className='add-bookmark__form vertical-space'>
                     <label className='add-bookmark__label'>

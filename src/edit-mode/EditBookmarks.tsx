@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from '../@types/app';
+import { BookmarkType } from '../@types/app';
 import Select from 'react-select';
 import EditorRow from './EditorRow';
 
 interface Props {
-  bookmarkData: Link[],
+  bookmarkData: BookmarkType[],
   categoryList: string[],
   updateBookmarkData: Function
 }
@@ -18,7 +18,7 @@ export const EditBookmarks: React.FC<Props> = (props) => {
         filteredBookmarks = filteredBookmarks.filter(bookmark => bookmark.category === selectedCategory);
     }
   
-    function handleEditBookmarks(newValues:Link) {
+    function handleEditBookmarks(newValues:BookmarkType) {
         const editingBookmark = props.bookmarkData.find(element => element.id === newValues.id);
         if (editingBookmark) {
             editingBookmark.name = newValues.name;

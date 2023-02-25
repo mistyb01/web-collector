@@ -1,9 +1,9 @@
 import React  from 'react';
-import { Link } from './@types/app';
+import { BookmarkType } from './@types/app';
 var uniqid = require('uniqid');
 
 interface Props {
-  bookmarkData: Link[],
+  bookmarkData: BookmarkType[],
   category: string,
   tag: string
 }
@@ -16,6 +16,7 @@ export const Bookmarks: React.FC<Props> = (props) => {
   }
 
   return (
+    <div className="bookmarks">
     <div className="bookmarks-container">
       <ul className="bookmarks-list">
         {filteredBookmarks.map((bookmark) => {
@@ -27,6 +28,7 @@ export const Bookmarks: React.FC<Props> = (props) => {
           }
         )}
       </ul>
+    </div>
     </div>
   );
 }
