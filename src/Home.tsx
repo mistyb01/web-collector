@@ -2,7 +2,6 @@ import React, { useState, ReactEventHandler }  from 'react';
 import Bookmarks from './Bookmarks';
 import Tags from './Tags';
 import { BookmarkType } from './@types/app';
-var uniqid = require('uniqid');
 
 interface Props {
   bookmarkData: BookmarkType[],
@@ -12,9 +11,6 @@ interface Props {
 }
 
 export const Home: React.FC<Props> = (props) => {
-
-  
-
   return (
    <>
     <div className="filter-menu">

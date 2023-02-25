@@ -1,7 +1,9 @@
 import React, { FormEvent, ReactEventHandler, useState }  from 'react';
 import { BookmarkType } from './@types/app';
 import Creatable from 'react-select/creatable';
+import { Link, useNavigate } from 'react-router-dom';
 var uniqid = require('uniqid'); 
+
 
 interface Props {
     handleAddToBookmarks: Function;
@@ -15,9 +17,9 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
     const [url, setUrl] = useState('');
     const [selectedCategory, setCategory] = useState('');
     const [tag, setTag] = useState('');
-    const [description, setDescription] = useState('');
-    
+    const [description, setDescription] = useState('');    
     const [showCategoryInput, setShowCategoryInput] = useState(false);
+    const navigate = useNavigate();
 
     const filteredBookmarks = props.bookmarkData.filter(bookmark => bookmark.category === selectedCategory);
     const tags = Array.from(new Set(filteredBookmarks.map(bookmark => bookmark.tag)));
@@ -39,10 +41,12 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
         setTag('');
         setDescription('');
         // props.closeForm();
+        navigate('/');
     }
 
     return (
         <div className='add-bookmark__container vertical-space'>
+            <Link to='/'><button className="header__button">close</button></Link>
             <h2>new bookmark</h2>
             <form onSubmit={submitBookmark} className='add-bookmark__form vertical-space'>
                     <label className='add-bookmark__label'>
