@@ -31,16 +31,22 @@ export const Home: React.FC<Props> = (props) => {
    <>
     <header>
           <h1 className="header-logo">web collector</h1>
+          {localStorage.getItem('bookmarkData') !== null &&
           <Categories 
             categoryList={categoryList} 
             category={category} 
             handleCategoryChange={handleCategoryChange}/>
+          }
           <div className="horizontal-space">
               <Link to='/add'><button className="header__button">add bookmark</button></Link>
+            {localStorage.getItem('bookmarkData') !== null &&
               <Link to='/edit'><button className="header__button">edit</button></Link>  
+            }
           </div>
     </header>
     <main className="home-container horizontal-space">
+    {localStorage.getItem('bookmarkData') !== null ?
+    <>
     <div className="filter-menu">
             <h3 className="filter-menu__header">filters</h3>
             <Tags 
@@ -50,6 +56,12 @@ export const Home: React.FC<Props> = (props) => {
                 handleTagChange={handleTagChange} />
           </div>
     <Bookmarks bookmarkData={props.bookmarkData} category={category} tag={tag}/>
+    </> :
+    <div className="page-container">
+        <h2>add your first bookmark!</h2>
+        <p>this page will show your bookmarks, along with categories and tags to sort them by!</p>
+    </div>
+    }
     </main>
    </>
   );
