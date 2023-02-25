@@ -20,7 +20,7 @@
 
 /* UTILITY CLASSES */
 .horizontal-space > * + * {
-  margin-left: 1rem;
+  margin-left: var(--custom-space, 1rem);
 }
 
 .vertical-space > * + * {
@@ -49,23 +49,25 @@ button {
   padding: 1rem 2rem;
   letter-spacing: 2px;
   text-transform: uppercase;  
-}
-
-.header__button {
   color: var(--fg-color);
   background-color: transparent;
   border: var(--border); 
 }
 
-.header__button:hover,
-.editor-options__button:hover {
+button:hover {
   color: var(--highlight-color);
   cursor: pointer;
 }
 
-.header__button--selected {
+.button--selected {
   color:  var(--highlight-color);
   background-color: var(--tertiary-color);
+}
+
+.category-button {
+  border: var(--border);
+  width: 100%;
+  padding: 0.5rem 1rem;
 }
 
 .form-button {
@@ -95,11 +97,13 @@ h2 {
 }
 
 .categories {
-  text-align: center;
+  --custom-space: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .home-container {
   display: flex;
+  --custom-space: 4rem;
 }
 
 .page-container {
@@ -140,6 +144,7 @@ h2 {
 .filter-menu {
   min-width: 20vw;
   padding-left: 1rem;
+  text-align: center;
 }
 
 .filter-menu__header {
