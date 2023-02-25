@@ -1,12 +1,12 @@
 import React, { FormEvent, ReactEventHandler, useState }  from 'react';
-import { Link } from './@types/app';
+import { BookmarkType } from './@types/app';
 import Creatable from 'react-select/creatable';
 var uniqid = require('uniqid'); 
 
 interface Props {
     handleAddToBookmarks: Function;
     categoryList: string[];
-    bookmarkData: Link[];
+    bookmarkData: BookmarkType[];
 }
   
 export const AddBookmark: React.FC<Props> = (props: Props) => {
@@ -24,7 +24,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
 
     function submitBookmark(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        const newBookmark:Link = {
+        const newBookmark:BookmarkType = {
             id: uniqid(), 
             name: name,
             url: url,

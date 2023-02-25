@@ -1,5 +1,4 @@
 import React, {useState, useEffect}  from 'react';
-import { Link } from '../@types/app';
 import EditBookmarks from './EditBookmarks';
 
 interface Props {

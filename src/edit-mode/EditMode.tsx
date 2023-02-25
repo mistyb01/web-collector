@@ -1,11 +1,11 @@
 import React, {useState}  from 'react';
-import { Link } from '../@types/app';
+import { BookmarkType } from '../@types/app';
 import EditBookmarks from './EditBookmarks';
 import EditCategories from './EditCategories';
 import EditTags from './EditTags';
 
 interface Props {
-    bookmarkData: Link[],
+    bookmarkData: BookmarkType[],
     updateBookmarkData: Function,
     categoryList: string[],
 }

@@ -1,7 +1,7 @@
-import { Link } from '../@types/app';
+import { BookmarkType } from '../@types/app';
 var uniqid = require('uniqid'); 
 
-const mockData: Link[] = [
+const mockData: BookmarkType[] = [
     {id: uniqid(), name: "mdn", url: "https://developer.mozilla.org/en-US/", description:"", category: "code", tag: "official docs"},
     {id: uniqid(), name: "react", url: "https://reactjs.org/docs/hello-world.html", description:"",  category: "code", tag: "official docs"},
     {id: uniqid(), name: "typescript", url: "https://www.typescriptlang.org/docs/", description:"", category: "code", tag: "official docs"},

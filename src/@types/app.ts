@@ -1,6 +1,6 @@
 export type TestType = string;
 
-export type Link = {
+export type BookmarkType = {
     id: number,
     name: string, 
     url: string, 
