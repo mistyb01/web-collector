@@ -9,6 +9,7 @@ import mockData from './data/static-data';
 import { useLocalStorage } from 'usehooks-ts';
 import EditMode from './edit-mode/EditMode';
 import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
+import Home from './Home';
 
 const App:FC = () => {
   
@@ -53,16 +54,8 @@ const App:FC = () => {
 
   return (
     <Router>
-         <Routes>
-          <Route path='/add' 
-            element={
-              <AddBookmark 
-                handleAddToBookmarks={handleAddToBookmarks} 
-                categoryList={categoryList} 
-                bookmarkData={bookmarkData}/>}/>
-          </Routes>
+  
     <div className="app">
-    
        <header>
           <h1 className="header-logo">web collector</h1>
           <Categories categoryList={categoryList} category={category} handleCategoryChange={handleCategoryChange}/>
@@ -82,13 +75,32 @@ const App:FC = () => {
           </main>
           :  */}
           <main className="main-container horizontal-space">
+
+          <Routes>
+        <Route path='/'
+          element={
+            <Home
+            bookmarkData={bookmarkData} 
+            category={category} 
+            tag={tag} 
+            handleTagChange={handleTagChange}/>
+          }
+          />
+        <Route path='/add' 
+          element={
+            <AddBookmark 
+              handleAddToBookmarks={handleAddToBookmarks} 
+              categoryList={categoryList} 
+              bookmarkData={bookmarkData}/>}/>
+      </Routes>
+
+          {/*moved to main.tsx 
           <div className="filter-menu">
             <h3 className="filter-menu__header">filters</h3>
             <Tags bookmarkData={bookmarkData} category={category} tag={tag} handleTagChange={handleTagChange} />
           </div>
-          <div className="bookmarks">
           <Bookmarks bookmarkData={bookmarkData} category={category} tag={tag}/>
-          </div>
+           */}
         </main>
     </div>
     </Router>
