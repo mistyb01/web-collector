@@ -59,7 +59,7 @@ export const Home: React.FC<Props> = (props) => {
     </> :
     <div className="page-container">
         <h2>add your first bookmark!</h2>
-        <p>this page will show your bookmarks, along with categories and tags to sort them by!</p>
+        <p>This page will show your bookmarks, along with categories and tags to sort them by.</p>
     </div>
     }
     </main>

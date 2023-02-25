@@ -13,7 +13,11 @@ const App:FC = () => {
   const [bookmarkData, setBookmarkData] = useLocalStorage('bookmarkData', mockData);
 
   function handleAddToBookmarks(newData:BookmarkType) {
-    setBookmarkData([...bookmarkData, newData]);
+    if (localStorage.getItem('bookmarkData') == null) {
+      setBookmarkData([newData]);
+    } else {
+      setBookmarkData([...bookmarkData, newData]);
+    }
   }
  
   function updateBookmarkData(newData:BookmarkType[]) {
