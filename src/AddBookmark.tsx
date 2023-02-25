@@ -5,7 +5,6 @@ var uniqid = require('uniqid');
 
 interface Props {
     handleAddToBookmarks: Function;
-    closeForm: Function;
     categoryList: string[];
     bookmarkData: Link[];
 }
@@ -39,7 +38,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
         setCategory('');
         setTag('');
         setDescription('');
-        props.closeForm();
+        // props.closeForm();
     }
 
     return (
