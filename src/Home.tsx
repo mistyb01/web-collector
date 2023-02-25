@@ -6,13 +6,13 @@ import { BookmarkType } from './@types/app';
 import { Link } from 'react-router-dom';
 
 interface Props {
-  bookmarkData: BookmarkType[],
-  categoryList: string[],
+  bookmarkData: BookmarkType[]
 }
 
 export const Home: React.FC<Props> = (props) => {
     const [category, setCategory] = useState('code');
     const [tag, setTag] = useState('all');
+    const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
      
   function handleCategoryChange(e: React.MouseEvent<HTMLButtonElement>) {
     setCategory(e.currentTarget.id);
@@ -32,7 +32,7 @@ export const Home: React.FC<Props> = (props) => {
     <header>
           <h1 className="header-logo">web collector</h1>
           <Categories 
-            categoryList={props.categoryList} 
+            categoryList={categoryList} 
             category={category} 
             handleCategoryChange={handleCategoryChange}/>
           <div className="horizontal-space">

@@ -8,13 +8,11 @@ import { Link } from 'react-router-dom';
 interface Props {
     bookmarkData: BookmarkType[],
     updateBookmarkData: Function,
-    categoryList: string[],
 }
-
-
 
 export const EditMode: React.FC<Props> = (props) => {
     const [mode, setMode] = useState('bookmarks');
+    const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
 
     return (
         <div className="page-container vertical-space">
@@ -27,7 +25,7 @@ export const EditMode: React.FC<Props> = (props) => {
                 <button className={`${mode === 'tags' ? 'header__button header__button--selected' : 'header__button'}`} onClick={() => setMode('tags')}>Tags</button>
                 <button className={`${mode === 'categories' ? 'header__button header__button--selected' : 'header__button'}`} onClick={() => setMode('categories')}>Categories</button>
             </ul>
-            {mode === 'bookmarks' ? <EditBookmarks updateBookmarkData={props.updateBookmarkData} bookmarkData={props.bookmarkData} categoryList={props.categoryList}/> :
+            {mode === 'bookmarks' ? <EditBookmarks updateBookmarkData={props.updateBookmarkData} bookmarkData={props.bookmarkData} categoryList={categoryList}/> :
             mode === 'tags' ? <EditTags/> : 
             mode === 'categories' ? <EditCategories/> : <></>}
         </div>     

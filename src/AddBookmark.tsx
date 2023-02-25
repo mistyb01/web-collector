@@ -7,7 +7,6 @@ var uniqid = require('uniqid');
 
 interface Props {
     handleAddToBookmarks: Function;
-    categoryList: string[];
     bookmarkData: BookmarkType[];
 }
   
@@ -21,6 +20,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
     const [showCategoryInput, setShowCategoryInput] = useState(false);
     const navigate = useNavigate();
 
+    const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
     const filteredBookmarks = props.bookmarkData.filter(bookmark => bookmark.category === selectedCategory);
     const tags = Array.from(new Set(filteredBookmarks.map(bookmark => bookmark.tag)));
 
@@ -63,7 +63,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
                         <div className='add-bookmark__category-options horizontal-space '>
                             <label className="radio-label category-option category-option--new"><input type="radio" name="category" value="new" checked={showCategoryInput} onChange={() => {setCategory(''); setShowCategoryInput(!showCategoryInput)}} />
                             +</label>
-                            {props.categoryList.map((category) => {
+                            {categoryList.map((category) => {
                                 return (
                                     <label key={uniqid()} className="radio-label category-option">
                                     <input type="radio" name="category" value={category} onChange={(e) => {setShowCategoryInput(false); setCategory(e.target.value)}}/>

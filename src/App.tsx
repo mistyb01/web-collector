@@ -12,10 +12,6 @@ const App:FC = () => {
   
   const [bookmarkData, setBookmarkData] = useLocalStorage('bookmarkData', mockData);
 
-  const categoryList = Array.from(new Set(
-    bookmarkData.map((bookmark) => bookmark.category)
-    ));
- 
   function handleAddToBookmarks(newData:BookmarkType) {
     setBookmarkData([...bookmarkData, newData]);
   }
@@ -24,30 +20,25 @@ const App:FC = () => {
     setBookmarkData(newData);
   }
 
-
   return (
     <div className="app">
         <Routes>
           <Route path='/'
             element={
-              <Home
-              bookmarkData={bookmarkData} 
-              categoryList={categoryList} />
-            }/>
+              <Home bookmarkData={bookmarkData} />}
+          />
           <Route path='/add' 
             element={
               <AddBookmark 
                 handleAddToBookmarks={handleAddToBookmarks} 
-                categoryList={categoryList} 
-                bookmarkData={bookmarkData}/>
-          }/>
+                bookmarkData={bookmarkData}/>}
+          />
           <Route path='/edit'
             element={
               <EditMode 
                 bookmarkData={bookmarkData} 
-                updateBookmarkData={updateBookmarkData} 
-                categoryList={categoryList} />
-          }/>
+                updateBookmarkData={updateBookmarkData}/>}
+          />
         </Routes>
     </div>
   );
