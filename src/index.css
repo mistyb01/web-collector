@@ -98,8 +98,25 @@ h2 {
   text-align: center;
 }
 
-.main-container {
+.home-container {
   display: flex;
+}
+
+.page-container {
+  width: 70vw;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+
+.header-buttons {
+  position: relative;
+  width: 100%;
+}
+
+.header-buttons > * {
+  position: absolute;
+  right: 0px;
 }
 
 .bookmarks-list {
@@ -162,10 +179,6 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.add-bookmark__container {
-  
 }
 
 .add-bookmark__form > * { display: block; }

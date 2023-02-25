@@ -40,13 +40,14 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
         setCategory('');
         setTag('');
         setDescription('');
-        // props.closeForm();
         navigate('/');
     }
 
     return (
-        <div className='add-bookmark__container vertical-space'>
-            <Link to='/'><button className="header__button">close</button></Link>
+        <div className='page-container vertical-space'>
+            <div className="header-buttons horizontal-space">
+                <Link to='/'><button className="header__button">close</button></Link>
+            </div>
             <h2>new bookmark</h2>
             <form onSubmit={submitBookmark} className='add-bookmark__form vertical-space'>
                     <label className='add-bookmark__label'>

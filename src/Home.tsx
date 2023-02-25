@@ -35,12 +35,12 @@ export const Home: React.FC<Props> = (props) => {
             categoryList={props.categoryList} 
             category={category} 
             handleCategoryChange={handleCategoryChange}/>
-          <div className="header-buttons horizontal-space">
+          <div className="horizontal-space">
               <Link to='/add'><button className="header__button">add bookmark</button></Link>
               <Link to='/edit'><button className="header__button">edit</button></Link>  
           </div>
-        </header>
-    <main className="main-container horizontal-space">
+    </header>
+    <main className="home-container horizontal-space">
     <div className="filter-menu">
             <h3 className="filter-menu__header">filters</h3>
             <Tags 
