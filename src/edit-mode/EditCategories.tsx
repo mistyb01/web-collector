@@ -19,6 +19,16 @@ export const EditCategories: React.FC<Props> = (props) => {
     }
   }
 
+  function handleDeleteCategory(categoryName:string) {
+    for (let i = 0; i < props.bookmarkData.length; i++) {
+      if (props.bookmarkData[i].category == categoryName) {
+        props.bookmarkData.splice(i,1);
+      }
+      props.updateBookmarkData(props.bookmarkData);
+    }
+  }
+
+
   return (
     
     <div className="edit-mode-container">
@@ -28,7 +38,10 @@ export const EditCategories: React.FC<Props> = (props) => {
                   <span>options</span>
           </li>
           {props.categoryList.map((category) => 
-            <CategoryRow category={category} handleRenameCategory={handleRenameCategory}/>
+            <CategoryRow 
+              category={category} 
+              handleRenameCategory={handleRenameCategory}
+              handleDeleteCategory={handleDeleteCategory}/>
           )}
         </ul>
    

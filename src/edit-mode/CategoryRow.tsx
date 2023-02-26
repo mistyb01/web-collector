@@ -1,10 +1,9 @@
 import React, {useState}  from 'react';
-import EditBookmarks from './EditBookmarks';
-import { BookmarkType } from '../@types/app';
 
 interface Props {
   category: string,
-  handleRenameCategory: Function
+  handleRenameCategory: Function,
+  handleDeleteCategory: Function
 }
 
 export const CategoryRow: React.FC<Props> = (props) => {
@@ -28,7 +27,7 @@ export const CategoryRow: React.FC<Props> = (props) => {
         {props.category}
         <div className="editor-options horizontal-space">
             <button onClick={()=>setShowEditFields(true)} className="editor-options__button">rename</button>
-            <button className="editor-options__button">delete</button>
+            <button onClick={()=>props.handleDeleteCategory(props.category)} className="editor-options__button">delete</button>
         </div>
         </>
         }
