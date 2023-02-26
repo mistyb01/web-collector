@@ -10,6 +10,14 @@ interface Props {
 
 export const EditCategories: React.FC<Props> = (props) => {
 
+  function handleRenameCategory(oldCategoryName:string, newCategoryName:string) {
+    for (let i = 0; i < props.bookmarkData.length; i++) {
+      if (props.bookmarkData[i].category == oldCategoryName) {
+        props.bookmarkData[i].category = newCategoryName;
+      }
+      props.updateBookmarkData(props.bookmarkData);
+    }
+  }
 
   return (
     
@@ -20,7 +28,7 @@ export const EditCategories: React.FC<Props> = (props) => {
                   <span>options</span>
           </li>
           {props.categoryList.map((category) => 
-            <CategoryRow category={category}/>
+            <CategoryRow category={category} handleRenameCategory={handleRenameCategory}/>
           )}
         </ul>
    

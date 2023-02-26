@@ -10,10 +10,11 @@ interface Props {
 }
 
 export const Home: React.FC<Props> = (props) => {
-    const [category, setCategory] = useState('code');
-    const [tag, setTag] = useState('all');
-    const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
-     
+  
+  const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
+  const [category, setCategory] = useState(categoryList[0]);
+  const [tag, setTag] = useState('all');
+
   function handleCategoryChange(e: React.MouseEvent<HTMLButtonElement>) {
     setCategory(e.currentTarget.id);
     setTag('all');
