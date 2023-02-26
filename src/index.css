@@ -288,10 +288,23 @@ input[type=text]:focus {
   color: var(--highlight-color);
 }
 
-.editor-list__row:nth-child(even) {
+li.editor-list__row:nth-of-type(even) {
   background-color: var(--light-bg-color);
 }
 
+.editor-list-warning {
+  text-align: center;
+  color: var(--highlight-color);
+  padding: 0.5rem;
+}
+
+.editor-list-warning button {
+  color: hotpink;
+  border: 1px dashed hotpink;
+  border: none;
+}
+
+.editor-list-warning button:hover { color: lightpink; }
 
 .editor-options__button {
   padding: 0.25rem;
