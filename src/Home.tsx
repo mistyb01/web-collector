@@ -32,11 +32,11 @@ export const Home: React.FC<Props> = (props) => {
    <>
     <header>
           <h1 className="header-logo">web collector</h1>
-          <div className="horizontal-space">
-              <Link to='/add'><button className="header__button">add bookmark</button></Link>
             {localStorage.getItem('bookmarkData') !== null &&
-              <Link to='/edit'><button className="header__button">edit</button></Link>}
-          </div>
+          <div className="horizontal-space">
+            <Link to='/add'><button className="header__button">add bookmark</button></Link>
+            <Link to='/edit'><button className="header__button">edit</button></Link>
+          </div>}
     </header>
     <main className="home-container horizontal-space">
     {localStorage.getItem('bookmarkData') !== null ?
@@ -57,10 +57,13 @@ export const Home: React.FC<Props> = (props) => {
     </div>
     <Bookmarks bookmarkData={props.bookmarkData} category={category} tag={tag}/>
     </> :
-    <div className="page-container">
+    <div className="page-container first-screen vertical-space">
         <h2>add your first bookmark!</h2>
-        <p>This page will show your bookmarks, along with categories and tags to sort them by.</p>
-        <Link to='/demo'>View Demo</Link>
+        <p>This page will show your bookmarks, <br/>along with categories and tags to sort them by.</p>
+        <div className="horizontal-space">
+        <Link to='/add'><button className="button--highlight">add bookmark</button></Link>
+        <Link to='/demo'><button>View Demo</button></Link>
+        </div>
     </div>
     }
     </main>

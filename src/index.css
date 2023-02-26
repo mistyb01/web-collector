@@ -112,7 +112,15 @@ h2 {
   margin-top: 2rem;
 }
 
+.first-screen {
+  text-align: center;
+  --custom-space: 2rem;
+}
 
+.button--highlight {
+  background-color: var(--secondary-color);
+  color: var(--main-bg-color);
+}
 .header-buttons {
   position: relative;
   width: 100%;
