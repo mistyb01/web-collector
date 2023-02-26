@@ -1,7 +1,11 @@
 import React, {useState}  from 'react';
-import EditBookmarks from './EditBookmarks';
+import { BookmarkType } from '../@types/app';
+import CategoryRow from './CategoryRow';
 
 interface Props {
+  bookmarkData: BookmarkType[],
+  categoryList: string[],
+  updateBookmarkData: Function
 }
 
 export const EditCategories: React.FC<Props> = (props) => {
@@ -10,7 +14,15 @@ export const EditCategories: React.FC<Props> = (props) => {
   return (
     
     <div className="edit-mode-container">
-        <h2>Categories</h2>
+        <ul className="editor-list editor-list--category">
+          <li className="editor-list__heading">
+                  <span>category</span>
+                  <span>options</span>
+          </li>
+          {props.categoryList.map((category) => 
+            <CategoryRow category={category}/>
+          )}
+        </ul>
    
     </div>
   );

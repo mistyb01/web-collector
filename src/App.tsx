@@ -13,6 +13,7 @@ const App:FC = () => {
   const [bookmarkData, setBookmarkData] = useLocalStorage('bookmarkData', mockData);
 
   function handleAddToBookmarks(newData:BookmarkType) {
+    // overwrite the mock data if we're saving data for the first time
     if (localStorage.getItem('bookmarkData') == null) {
       setBookmarkData([newData]);
     } else {
