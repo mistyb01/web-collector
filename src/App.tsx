@@ -28,17 +28,17 @@ const App:FC = () => {
   return (
     <div className="app">
         <Routes>
-          <Route path='/'
+          <Route path='/starter-tab'
             element={
               <Home bookmarkData={bookmarkData} />}
           />
-          <Route path='/add' 
+          <Route path='/starter-tab/add' 
             element={
               <AddBookmark 
                 handleAddToBookmarks={handleAddToBookmarks} 
                 bookmarkData={bookmarkData}/>}
           />
-          <Route path='/edit'
+          <Route path='/starter-tab/edit'
             element={
               <EditMode 
                 bookmarkData={bookmarkData} 
