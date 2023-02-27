@@ -43,9 +43,7 @@ export const EditTags: React.FC<Props> = (props) => {
     }
   }
 
-
   return (
-    
     <div className="edit-mode-container vertical-space">
         <Select 
             options={
