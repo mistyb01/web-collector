@@ -13,6 +13,7 @@ interface Props {
 export const EditMode: React.FC<Props> = (props) => {
     const [mode, setMode] = useState('bookmarks');
     const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
+    const tagList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.tag)));
 
     return (
         <div className="page-container vertical-space">
@@ -26,7 +27,7 @@ export const EditMode: React.FC<Props> = (props) => {
                 <button className={`${mode === 'categories' ? 'button--selected' : ''}`} onClick={() => setMode('categories')}>Categories</button>
             </ul>
             {mode === 'bookmarks' ? <EditBookmarks updateBookmarkData={props.updateBookmarkData} bookmarkData={props.bookmarkData} categoryList={categoryList}/> :
-            mode === 'tags' ? <EditTags/> : 
+            mode === 'tags' ? <EditTags updateBookmarkData={props.updateBookmarkData} bookmarkData={props.bookmarkData} tagList={tagList} categoryList={categoryList}/> : 
             mode === 'categories' ? <EditCategories updateBookmarkData={props.updateBookmarkData} bookmarkData={props.bookmarkData} categoryList={categoryList}/> : <></>}
         </div>     
   );

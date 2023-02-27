@@ -39,7 +39,7 @@ export const EditCategories: React.FC<Props> = (props) => {
           </li>
           {props.categoryList.map((category) => 
             <CategoryRow 
-              category={category} 
+              name={category} 
               handleRenameCategory={handleRenameCategory}
               handleDeleteCategory={handleDeleteCategory}/>
           )}
