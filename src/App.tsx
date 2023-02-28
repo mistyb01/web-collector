@@ -28,17 +28,18 @@ const App:FC = () => {
   return (
     <div className="app">
         <Routes>
-          <Route path='/starter-tab'
+          {/* for gh-pages to work, change '/' to '/<repo-name>' */}
+          <Route path=''
             element={
               <Home bookmarkData={bookmarkData} />}
           />
-          <Route path='/starter-tab/add' 
+          <Route path='/add' 
             element={
               <AddBookmark 
                 handleAddToBookmarks={handleAddToBookmarks} 
                 bookmarkData={bookmarkData}/>}
           />
-          <Route path='/starter-tab/edit'
+          <Route path='/edit'
             element={
               <EditMode 
                 bookmarkData={bookmarkData} 
