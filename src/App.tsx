@@ -29,7 +29,7 @@ const App:FC = () => {
     <div className="app">
         <Routes>
           {/* for gh-pages to work, change '/' to '/<repo-name>' */}
-          <Route path=''
+          <Route path='/'
             element={
               <Home bookmarkData={bookmarkData} />}
           />
