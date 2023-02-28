@@ -1,12 +1,13 @@
 import React, {useState}  from 'react';
 
 interface Props {
+  type: string,
   name: string,
-  handleRenameCategory: Function,
-  handleDeleteCategory: Function
+  handleRenameItem: Function,
+  handleDeleteItem: Function
 }
 
-export const CategoryRow: React.FC<Props> = (props) => {
+export const CategoryTagRow: React.FC<Props> = (props) => {
 
     const [showEditFields, setShowEditFields] = useState(false);
     const [newName, setName] = useState(props.name);
@@ -19,7 +20,7 @@ export const CategoryRow: React.FC<Props> = (props) => {
         <>
         <input type="text" onChange={(e) => setName(e.target.value)} className="editing-input" value={newName}/>
         <div className="editor-options horizontal-space">
-            <button onClick={()=>{props.handleRenameCategory(props.name, newName); setShowEditFields(false)}} className="editor-options__button">submit</button>
+            <button onClick={()=>{props.handleRenameItem(props.name, newName); setShowEditFields(false)}} className="editor-options__button">submit</button>
             <button onClick={()=>setShowEditFields(false)} className="editor-options__button">close</button>
         </div>
         </>
@@ -36,9 +37,9 @@ export const CategoryRow: React.FC<Props> = (props) => {
     </li>
     {showWarning &&
         <div className="editor-list-warning horizontal-space">
-            <span>Deleting this category will also delete all associated bookmarks.</span>
+            <span>Deleting this {props.type} will also delete all associated bookmarks.</span>
             <button 
-                onClick={()=>props.handleDeleteCategory(props.name)} 
+                onClick={()=>props.handleDeleteItem(props.name)} 
                 className="editor-options__button">
                 Proceed
             </button>
@@ -50,4 +51,4 @@ export const CategoryRow: React.FC<Props> = (props) => {
   );
 }
 
-export default CategoryRow;
+export default CategoryTagRow;

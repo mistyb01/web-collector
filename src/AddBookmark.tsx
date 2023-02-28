@@ -40,7 +40,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
         setCategory('');
         setTag('');
         setDescription('');
-        navigate('/');
+        navigate('/starter-tab');
     }
 
     return (

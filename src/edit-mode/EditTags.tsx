@@ -1,6 +1,6 @@
 import React, {useState}  from 'react';
 import { BookmarkType } from '../@types/app';
-import CategoryRow from './CategoryRow';
+import CategoryTagRow from './CategoryTagRow';
 import Select from 'react-select';
 
 
@@ -57,10 +57,11 @@ export const EditTags: React.FC<Props> = (props) => {
                   <span>options</span>
           </li>
           {tagList.map((item) => 
-            <CategoryRow 
+            <CategoryTagRow 
+              type="tag"
               name={item} 
-              handleRenameCategory={handleRenameTag}
-              handleDeleteCategory={handleDeleteTag}/>
+              handleRenameItem={handleRenameTag}
+              handleDeleteItem={handleDeleteTag}/>
           )}
         </ul>
    

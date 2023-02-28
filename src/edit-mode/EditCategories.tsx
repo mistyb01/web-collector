@@ -1,6 +1,6 @@
 import React, {useState}  from 'react';
 import { BookmarkType } from '../@types/app';
-import CategoryRow from './CategoryRow';
+import CategoryTagRow from './CategoryTagRow';
 
 interface Props {
   bookmarkData: BookmarkType[],
@@ -38,10 +38,11 @@ export const EditCategories: React.FC<Props> = (props) => {
                   <span>options</span>
           </li>
           {props.categoryList.map((category) => 
-            <CategoryRow 
+            <CategoryTagRow 
+              type="category"
               name={category} 
-              handleRenameCategory={handleRenameCategory}
-              handleDeleteCategory={handleDeleteCategory}/>
+              handleRenameItem={handleRenameCategory}
+              handleDeleteItem={handleDeleteCategory}/>
           )}
         </ul>
    

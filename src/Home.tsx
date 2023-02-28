@@ -34,8 +34,8 @@ export const Home: React.FC<Props> = (props) => {
           <h1 className="header-logo">web collector</h1>
             {localStorage.getItem('bookmarkData') !== null &&
           <div className="horizontal-space">
-            <Link to='/add'><button className="header__button">add bookmark</button></Link>
-            <Link to='/edit'><button className="header__button">edit</button></Link>
+            <Link to='/starter-tab/add'><button className="header__button">add bookmark</button></Link>
+            <Link to='/starter-tab/edit'><button className="header__button">edit</button></Link>
           </div>}
     </header>
     <main className="home-container horizontal-space">
