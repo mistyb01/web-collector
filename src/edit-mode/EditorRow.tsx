@@ -42,7 +42,7 @@ export const EditorRow: React.FC<Props> = (props) => {
         : 
         <>
         <span>{props.bookmarkName}</span>
-        <input type="text" value={props.bookmarkUrl}/>
+        <input readOnly type="text" value={props.bookmarkUrl}/>
         <span>{props.bookmarkCategory}</span>
         <span>{props.bookmarkTag}</span>
         <div className="editor-options horizontal-space">

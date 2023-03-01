@@ -1,4 +1,6 @@
 import React, {useState}  from 'react';
+var uniqid = require('uniqid'); 
+
 
 interface Props {
   type: string,
@@ -15,7 +17,7 @@ export const CategoryTagRow: React.FC<Props> = (props) => {
 
   return (
     <>
-    <li className='editor-list__row'>
+    <li key={uniqid()} className='editor-list__row'>
         {showEditFields ?
         <>
         <input type="text" onChange={(e) => setName(e.target.value)} className="editing-input" value={newName}/>
