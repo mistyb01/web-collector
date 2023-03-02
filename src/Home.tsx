@@ -30,10 +30,10 @@ export const Home: React.FC<Props> = (props) => {
 
   return (
    <>
-    <header>
+    <header className="vertical-space">
           <h1 className="header-logo">web collector</h1>
             {localStorage.getItem('bookmarkData') !== null &&
-          <div className="horizontal-space">
+          <div className="header-buttons horizontal-space">
             <Link to='/add'><button className="header__button">add bookmark</button></Link>
             <Link to='/edit'><button className="header__button">edit</button></Link>
           </div>}

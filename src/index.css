@@ -90,6 +90,7 @@ button:hover {
   background-color: var(--tertiary-color);
   border: 1px solid var(--highlight-color);
 }
+
 header {
   display: flex;
   justify-content: space-between;
@@ -143,12 +144,13 @@ h2 {
   background-color: var(--secondary-color);
   color: var(--main-bg-color);
 }
-.header-buttons {
+
+.editor-header-buttons {
   position: relative;
   width: 100%;
 }
 
-.header-buttons > * {
+.editor-header-buttons > * {
   position: absolute;
   right: 0px;
 }
@@ -349,4 +351,48 @@ input[type=text].editing-input {
 
 input[type=text].editing-input:focus {
   color: #fff;
+}
+
+/* mobile/tablet layout */
+
+@media (max-width: 1024px) {
+  .page-container {
+    width: 90vw;
+  }
+   
+.category-button {
+  padding: 0.75rem 1.75rem;
+  margin-top: 0.5rem;
+}
+
+}
+
+
+@media (max-width: 768px) {
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    --custom-space: 2rem;
+  }
+ 
+.category-button {
+  padding: 1rem 2rem;
+  margin-top: 0.5rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.header-buttons {
+  display: flex;
+}
+
+
+ 
+  
 }

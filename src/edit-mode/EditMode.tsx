@@ -17,7 +17,7 @@ export const EditMode: React.FC<Props> = (props) => {
 
     return (
         <div className="page-container vertical-space">
-            <div className="header-buttons">
+            <div className="editor-header-buttons">
                 <Link to='/'><button className="header__button" onClick={() => {}}>Close</button></Link>
             </div>
             <h2>EDITOR</h2>
