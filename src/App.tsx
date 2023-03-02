@@ -5,7 +5,7 @@ import AddBookmark from './AddBookmark';
 import mockData from './data/static-data';
 import { useLocalStorage } from 'usehooks-ts';
 import EditMode from './edit-mode/EditMode';
-import { Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes,  } from 'react-router-dom';
 import Home from './Home';
 
 const App:FC = () => {
@@ -26,10 +26,10 @@ const App:FC = () => {
   }
 
   return (
-    <div className="app">
+    <HashRouter>
         <Routes>
           {/* for gh-pages to work, change '/' to '/<repo-name>' */}
-          <Route path='/'
+          <Route path=''
             element={
               <Home bookmarkData={bookmarkData} />}
           />
@@ -46,7 +46,7 @@ const App:FC = () => {
                 updateBookmarkData={updateBookmarkData}/>}
           />
         </Routes>
-    </div>
+    </HashRouter>
   );
 }
 
