@@ -1,6 +1,7 @@
 import React, {useState}  from 'react';
 import { BookmarkType } from '../@types/app';
 import CategoryTagRow from './CategoryTagRow';
+var uniqid = require('uniqid'); 
 
 interface Props {
   bookmarkData: BookmarkType[],
@@ -39,6 +40,7 @@ export const EditCategories: React.FC<Props> = (props) => {
           </li>
           {props.categoryList.map((category) => 
             <CategoryTagRow 
+              key={uniqid()}
               type="category"
               name={category} 
               handleRenameItem={handleRenameCategory}

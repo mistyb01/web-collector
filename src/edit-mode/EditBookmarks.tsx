@@ -39,7 +39,7 @@ export const EditBookmarks: React.FC<Props> = (props) => {
     <div className="edit-bookmarks-container vertical-space">
         <Select 
             options={
-                props.categoryList.map(category => ({label: category, value: category}))}
+                ["all",...props.categoryList].map(category => ({label: category, value: category}))}
             onChange={(opt) => setSelectedCategory(opt!.value)}
             placeholder={'filter by category'}
         />

@@ -12,8 +12,8 @@ interface Props {
 
 export const EditMode: React.FC<Props> = (props) => {
     const [mode, setMode] = useState('bookmarks');
-    const categoryList = ["all", ...Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)))];
-    const tagList = ["all", ...Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.tag)))];
+    const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
+    const tagList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.tag)));
 
     return (
         <div className="page-container vertical-space">

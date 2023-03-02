@@ -2,6 +2,7 @@ import React, {useState}  from 'react';
 import { BookmarkType } from '../@types/app';
 import CategoryTagRow from './CategoryTagRow';
 import Select from 'react-select';
+var uniqid = require('uniqid'); 
 
 
 interface Props {
@@ -21,7 +22,7 @@ export const EditTags: React.FC<Props> = (props) => {
   if (selectedCategory !== 'all') {
       tagData = tagData.filter(item => item.category === selectedCategory);
       tagList = Array.from(new Set(
-        tagData.map(item=>item.category)
+        tagData.map(item=>item.tag)
       ))
   }
 
@@ -47,7 +48,7 @@ export const EditTags: React.FC<Props> = (props) => {
     <div className="edit-mode-container vertical-space">
         <Select 
             options={
-                props.categoryList.map(category => ({label: category, value: category}))}
+                ["all",...props.categoryList].map(category => ({label: category, value: category}))}
             onChange={(opt) => setSelectedCategory(opt!.value)}
             placeholder={'filter by category'}
         />
@@ -58,6 +59,7 @@ export const EditTags: React.FC<Props> = (props) => {
           </li>
           {tagList.map((item) => 
             <CategoryTagRow 
+              key={uniqid()}
               type="tag"
               name={item} 
               handleRenameItem={handleRenameTag}
