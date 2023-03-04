@@ -94,6 +94,7 @@ button:hover {
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 1rem;
 }
 
@@ -244,7 +245,7 @@ input[type=text]:focus {
   opacity: 0;
 }
 
-.radio-label:focus-within {
+.radio-label--selected {
   color: var(--highlight-color);
   outline: 1px solid var(--highlight-color);
 }
