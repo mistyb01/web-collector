@@ -354,6 +354,28 @@ input[type=text].editing-input:focus {
   color: #fff;
 }
 
+.palette-container {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+}
+
+.palette-container p {
+  padding: 0.25rem;
+  text-align: center;
+}
+
+.palette-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.palette-list__color {
+  width: 5rem;
+  height: 2.5rem;
+  border: 1px solid red;
+}
+
 /* mobile/tablet layout */
 
 @media (max-width: 1024px) {

@@ -4,6 +4,7 @@ import EditBookmarks from './EditBookmarks';
 import EditCategories from './EditCategories';
 import EditTags from './EditTags';
 import { Link } from 'react-router-dom';
+import EditTheme from './EditTheme';
 
 interface Props {
     bookmarkData: BookmarkType[],
@@ -25,10 +26,13 @@ export const EditMode: React.FC<Props> = (props) => {
                 <button className={`${mode === 'bookmarks' ? 'button--selected' : ''}`} onClick={() => setMode('bookmarks')}>Bookmarks</button>
                 <button className={`${mode === 'tags' ? 'button--selected' : ''}`} onClick={() => setMode('tags')}>Tags</button>
                 <button className={`${mode === 'categories' ? 'button--selected' : ''}`} onClick={() => setMode('categories')}>Categories</button>
+                <button className={`${mode === 'theme' ? 'button--selected' : ''}`} onClick={() => setMode('theme')}>Color theme</button>
             </ul>
             {mode === 'bookmarks' ? <EditBookmarks updateBookmarkData={props.updateBookmarkData} bookmarkData={props.bookmarkData} categoryList={categoryList}/> :
             mode === 'tags' ? <EditTags updateBookmarkData={props.updateBookmarkData} bookmarkData={props.bookmarkData} tagList={tagList} categoryList={categoryList}/> : 
-            mode === 'categories' ? <EditCategories updateBookmarkData={props.updateBookmarkData} bookmarkData={props.bookmarkData} categoryList={categoryList}/> : <></>}
+            mode === 'categories' ? <EditCategories updateBookmarkData={props.updateBookmarkData} bookmarkData={props.bookmarkData} categoryList={categoryList}/> :
+            mode === 'theme' ? <EditTheme/>
+            : <></>}
         </div>     
   );
 }
