@@ -25,7 +25,13 @@ const App:FC = () => {
     setBookmarkData(newData);
   }
 
+  // for saving theme preferences
+  // attrib: https://css-tricks.com/easy-dark-mode-and-multiple-color-themes-in-react/
+  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+
   return (
+    <div className="app" data-theme={theme}>
     <HashRouter>
         <Routes>
           {/* for gh-pages to work, change '/' to '/<repo-name>' */}
@@ -47,6 +53,7 @@ const App:FC = () => {
           />
         </Routes>
     </HashRouter>
+    </div>
   );
 }
 

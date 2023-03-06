@@ -12,10 +12,22 @@
   --lighter-bg-color: #003554;
   --tertiary-color: #006494;
   --secondary-color: #0582CA;
+
   --fg-color: #00A6FB;
   --highlight-color: #87cefa;
 
   --border: 1px solid var(--tertiary-color);
+}
+
+[data-theme="light"] {
+  --main-bg-color: rgb(255, 255, 255);
+  --light-bg-color: #ffdce9;
+  --lighter-bg-color: #ffd9e2;
+  --tertiary-color: lightpink;
+  --secondary-color: hotpink;
+
+  --fg-color: #003554;
+  --highlight-color: rgb(255, 0, 72);
 }
 
 @font-face {
@@ -37,16 +49,16 @@
 }
 /*  */
 
-body {
+
+.app {
   font-size: 1.25rem;
   font-family: questrial, 'Lucida Sans', sans-serif;
-  /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
   background-color: var(--main-bg-color);
   color: var(--fg-color);
+  height: 100vh;
 }
 
 main, header { 
-  margin-top: 2rem;
   margin-left: 5rem;
   margin-right: 5rem; 
 }
@@ -133,7 +145,7 @@ h2 {
 .page-container {
   width: 70vw;
   margin: auto;
-  margin-top: 2rem;
+  padding-top: 2rem;
 }
 
 .first-screen {
@@ -143,7 +155,7 @@ h2 {
 
 .button--highlight {
   background-color: var(--secondary-color);
-  color: var(--main-bg-color);
+  color: transparent;
 }
 
 .editor-header-buttons {
@@ -196,7 +208,7 @@ h2 {
 }
 
 .tags-list__item:hover {
-  color: var(--fg-color);
+  color: var(--highlight-color);
   cursor: pointer;
 }
 
@@ -356,8 +368,8 @@ input[type=text].editing-input:focus {
 
 .palette-container {
   display: flex;
-  flex-direction: column;
-  width: min-content;
+  flex-direction: row;
+  align-items: center;
 }
 
 .palette-container p {
