@@ -9,6 +9,7 @@ import EditTheme from './EditTheme';
 interface Props {
     bookmarkData: BookmarkType[],
     updateBookmarkData: Function,
+    updateTheme: Function
 }
 
 export const EditMode: React.FC<Props> = (props) => {
@@ -31,7 +32,7 @@ export const EditMode: React.FC<Props> = (props) => {
             {mode === 'bookmarks' ? <EditBookmarks updateBookmarkData={props.updateBookmarkData} bookmarkData={props.bookmarkData} categoryList={categoryList}/> :
             mode === 'tags' ? <EditTags updateBookmarkData={props.updateBookmarkData} bookmarkData={props.bookmarkData} tagList={tagList} categoryList={categoryList}/> : 
             mode === 'categories' ? <EditCategories updateBookmarkData={props.updateBookmarkData} bookmarkData={props.bookmarkData} categoryList={categoryList}/> :
-            mode === 'theme' ? <EditTheme/>
+            mode === 'theme' ? <EditTheme updateTheme={props.updateTheme} />
             : <></>}
         </div>     
   );
