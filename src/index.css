@@ -13,6 +13,9 @@
   --tertiary-color: #006494;
   --secondary-color: #0582CA;
 
+  --light-text-color: #006494;
+  --input-color: #006494;
+
   --fg-color: #00A6FB;
   --highlight-color: #87cefa;
 
@@ -21,13 +24,16 @@
 
 [data-theme="light"] {
   --main-bg-color: rgb(255, 255, 255);
-  --light-bg-color: #ffdce9;
-  --lighter-bg-color: #ffd9e2;
-  --tertiary-color: lightpink;
-  --secondary-color: hotpink;
+  --light-bg-color: rgb(206, 255, 255);
+  --lighter-bg-color: rgb(228, 250, 255);
+  --tertiary-color: #cafa87;
+  --secondary-color: rgb(38, 129, 189);
+
+  --light-text-color: #8ec73f;
+  --input-color: rgb(69, 155, 156);
 
   --fg-color: #003554;
-  --highlight-color: rgb(255, 0, 72);
+  --highlight-color: rgb(38, 129, 189);
 }
 
 @font-face {
@@ -197,7 +203,7 @@ h2 {
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 3px;
-  color: var(--tertiary-color);
+  color: var(--light-text-color);
   border-bottom: 1px dotted var(--lighter-bg-color);
 }
 
@@ -208,7 +214,7 @@ h2 {
 }
 
 .tags-list__item:hover {
-  color: var(--highlight-color);
+  color: var(--light-text-color);
   cursor: pointer;
 }
 
@@ -240,7 +246,7 @@ h2 {
 input[type=text] {
   background: transparent;
   border: var(--border);
-  color: var(--tertiary-color);
+  color: var(--input-color);
   font-size: 1.5rem;
   padding: 0.25rem 0.5rem;
   width: 100%;
@@ -363,7 +369,7 @@ input[type=text].editing-input {
 }
 
 input[type=text].editing-input:focus {
-  color: #fff;
+  color: var(--highlight-color);
 }
 
 .palette-container {
