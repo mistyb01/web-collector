@@ -2,12 +2,13 @@ import React, {FormEvent, useState}  from 'react';
 import { Link } from 'react-router-dom';
 
 interface Props {
-  updateTheme: Function
+  updateTheme: Function,
+  currentTheme: string
 }
 
 export const EditTheme: React.FC<Props> = (props) => {
 
-    const [selectedTheme, setSelectedTheme] = useState('light');
+    const [selectedTheme, setSelectedTheme] = useState(props.currentTheme);
 
     function handleSaveTheme(e: FormEvent) {
       e.preventDefault();

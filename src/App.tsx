@@ -50,7 +50,8 @@ const App:FC = () => {
               <EditMode 
                 bookmarkData={bookmarkData} 
                 updateBookmarkData={updateBookmarkData}
-                updateTheme={(newTheme: string) => setTheme(newTheme)}/>}
+                updateTheme={(newTheme: string) => setTheme(newTheme)}
+                currentTheme={theme}/>}
           />
         </Routes>
     </HashRouter>

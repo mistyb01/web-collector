@@ -45,7 +45,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
 
     return (
         <div className='page-container vertical-space'>
-            <div className="header-buttons horizontal-space">
+            <div className="editor-header-buttons horizontal-space">
                 <Link to='/'><button className="header__button">close</button></Link>
             </div>
             <h2>new bookmark</h2>

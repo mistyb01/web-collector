@@ -61,6 +61,7 @@
 main, header { 
   margin-left: 5rem;
   margin-right: 5rem; 
+  padding-top: 1rem;
 }
 
 a { 
@@ -107,7 +108,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
 }
 
 h1,
