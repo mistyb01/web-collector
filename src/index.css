@@ -53,15 +53,18 @@
 .vertical-space > * + * {
   margin-top: var(--custom-space, 1rem);
 }
-/*  */
 
+body, html, #root {
+  height: 100%;
+}
 
 .app {
   font-size: 1.25rem;
   font-family: questrial, 'Lucida Sans', sans-serif;
   background-color: var(--main-bg-color);
   color: var(--fg-color);
-  height: 100vh;
+  min-height: 100%; /*MIN-height is important for allowing the height to grow. */
+  width: 100%;
 }
 
 main, header { 
@@ -181,6 +184,7 @@ h2 {
   /* the line of code below is baseddd it removes need for a media query! */
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); 
   /* grid-template-columns: repeat(2, 1fr); */
+  padding-bottom: 2rem;
 }
 
 .bookmarks-list__item {
@@ -429,7 +433,7 @@ header {
   flex-direction: column;
   padding: 0rem;
   align-items: center;
-  margin-top: 2rem;
+  padding-top: 2rem;
 }
 
 .header-buttons {
