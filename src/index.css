@@ -144,8 +144,9 @@ h2 {
 }
 
 .home-container {
-  display: flex;
-  --custom-space: 4rem;
+    display: grid;
+    grid-template-columns: minmax(150px, 25%) 1fr;
+    grid-gap: 2rem;
 }
 
 .page-container {
@@ -161,7 +162,7 @@ h2 {
 
 .button--highlight {
   background-color: var(--secondary-color);
-  color: transparent;
+  color: var(--fg-color);
 }
 
 .editor-header-buttons {
@@ -175,9 +176,11 @@ h2 {
 }
 
 .bookmarks-list {
-  display: flex;
-  flex-wrap:wrap;
-  gap: 1rem;
+  display: grid;
+  grid-gap: 1rem;
+  /* the line of code below is baseddd it removes need for a media query! */
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); 
+  /* grid-template-columns: repeat(2, 1fr); */
 }
 
 .bookmarks-list__item {

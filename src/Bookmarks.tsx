@@ -16,7 +16,6 @@ export const Bookmarks: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="bookmarks">
     <div className="bookmarks-container">
       <ul className="bookmarks-list">
         {filteredBookmarks.map((bookmark) => {
@@ -28,7 +27,6 @@ export const Bookmarks: React.FC<Props> = (props) => {
           }
         )}
       </ul>
-    </div>
     </div>
   );
 }

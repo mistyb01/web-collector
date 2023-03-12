@@ -38,7 +38,7 @@ export const Home: React.FC<Props> = (props) => {
             <Link to='/edit'><button className="header__button">edit</button></Link>
           </div>}
     </header>
-    <main className="home-container horizontal-space">
+    <main className="home-container">
     {localStorage.getItem('bookmarkData') !== null ?
     <>
     <div className="filter-menu">
