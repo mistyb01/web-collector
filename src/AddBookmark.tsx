@@ -21,19 +21,28 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
     const [showCategoryInput, setShowCategoryInput] = useState(false);
     const navigate = useNavigate();
 
+    const [showNameError, setShowNameError] = useState(false);
+    const [showUrlError, setShowUrlError] = useState(false);
+
     const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
     const filteredBookmarks = props.bookmarkData.filter(bookmark => bookmark.category === selectedCategory);
     const tags = Array.from(new Set(filteredBookmarks.map(bookmark => bookmark.tag)));
 
-    function submitBookmark(e: FormEvent<HTMLFormElement>) {
+    function validateForm(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
+        name === '' ? setShowNameError(true) : setShowNameError(false);
+        url == '' ? setShowUrlError(true) : setShowUrlError(false);
+        if (name !== '' && url !== '') submitBookmark();
+    }
+
+    function submitBookmark() {
         const newBookmark:BookmarkType = {
             id: uniqid(), 
             name: name,
             url: url,
             description: description,
-            category: selectedCategory,
-            tag: tag
+            category: selectedCategory || 'uncategorized',
+            tag: tag || 'untagged'
         }
         props.handleAddToBookmarks(newBookmark);
         setName('');
@@ -51,14 +60,16 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
                 <Link to='/'><button className="header__button">close</button></Link>
             </div>
             <h2>new bookmark</h2>
-            <form onSubmit={submitBookmark} className='add-bookmark__form vertical-space'>
+            <form onSubmit={validateForm} className='add-bookmark__form vertical-space'>
                     <label className='add-bookmark__label'>
-                        <span>Name of Page</span>
+                        <span>Name of Page *</span>
                         <input type="text" value={name} onChange={(e) => setName(e.target.value) } />
+                        {showNameError && <p className='highlight-text'>name can't be empty!</p>}
                     </label>
                     <label className='add-bookmark__label'>
-                        <span>URL</span>
+                        <span>URL *</span>
                         <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} />
+                        {showUrlError && <p className='highlight-text'>url can't be empty!</p>}
                     </label>
                     <label className='add-bookmark__label vertical-space'>
                         <span>Category</span>
@@ -88,7 +99,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
                             onChange={(opt) => setTag(opt!.value)}/>
                     </label>
                     <label className='add-bookmark__label'>
-                        <span>Description (optional)</span>
+                        <span>Description</span>
                         <input type="text" value={description} onChange={(e) => setDescription(e.target.value)}/>
                     </label>
                 <button type="submit" className="form-button">submit</button>
