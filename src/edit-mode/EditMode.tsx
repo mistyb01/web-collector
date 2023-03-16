@@ -5,6 +5,7 @@ import EditCategories from './EditCategories';
 import EditTags from './EditTags';
 import { Link } from 'react-router-dom';
 import EditTheme from './EditTheme';
+import AnimatedPage from '../AnimatedPage';
 
 interface Props {
     bookmarkData: BookmarkType[],
@@ -19,6 +20,7 @@ export const EditMode: React.FC<Props> = (props) => {
     const tagList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.tag)));
 
     return (
+        <AnimatedPage>
         <div className="page-container vertical-space">
             <div className="editor-header-buttons">
                 <Link to='/'><button className="header__button" onClick={() => {}}>Close</button></Link>
@@ -35,7 +37,8 @@ export const EditMode: React.FC<Props> = (props) => {
             mode === 'categories' ? <EditCategories updateBookmarkData={props.updateBookmarkData} bookmarkData={props.bookmarkData} categoryList={categoryList}/> :
             mode === 'theme' ? <EditTheme currentTheme={props.currentTheme} updateTheme={props.updateTheme} />
             : <></>}
-        </div>     
+            </div>
+        </AnimatedPage>     
   );
 }
 

@@ -4,6 +4,7 @@ import Tags from './Tags';
 import Categories from './Categories';
 import { BookmarkType } from './@types/app';
 import { Link } from 'react-router-dom';
+import AnimatedPage from './AnimatedPage';
 
 interface Props {
   bookmarkData: BookmarkType[]
@@ -29,7 +30,7 @@ export const Home: React.FC<Props> = (props) => {
   }
 
   return (
-   <>
+   <AnimatedPage>
     <header className="vertical-space">
           <h1 className="header-logo">web collector</h1>
             {localStorage.getItem('bookmarkData') !== null &&
@@ -67,7 +68,7 @@ export const Home: React.FC<Props> = (props) => {
     </div>
     }
     </main>
-   </>
+   </AnimatedPage>
   );
 }
 

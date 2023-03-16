@@ -2,6 +2,7 @@ import React, { FormEvent, ReactEventHandler, useState }  from 'react';
 import { BookmarkType } from './@types/app';
 import Creatable from 'react-select/creatable';
 import { Link, useNavigate } from 'react-router-dom';
+import AnimatedPage from './AnimatedPage';
 var uniqid = require('uniqid'); 
 
 
@@ -44,6 +45,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
     }
 
     return (
+        <AnimatedPage>
         <div className='page-container vertical-space'>
             <div className="editor-header-buttons horizontal-space">
                 <Link to='/'><button className="header__button">close</button></Link>
@@ -92,6 +94,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
                 <button type="submit" className="form-button">submit</button>
             </form>
         </div>
+        </AnimatedPage>
     )
 
 }
