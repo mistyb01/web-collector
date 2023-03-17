@@ -57,9 +57,8 @@ export const Home: React.FC<Props> = (props) => {
             }
           </div>}
     </header>
-    <main className="home-container">
     {props.bookmarkData.length !== 0 ?
-    <>
+    <main className="home-container">
     <div className="filter-menu">
         <h3 className="filter-menu__header">categories</h3>
             <Categories 
@@ -75,17 +74,15 @@ export const Home: React.FC<Props> = (props) => {
             handleTagChange={handleTagChange} />
     </div>
     <Bookmarks bookmarkData={props.bookmarkData} category={category} tag={tag}/>
-    </> :
-    <div className="page-container first-screen vertical-space">
-        <h2>add your first bookmark!</h2>
-        <p>This page will show your bookmarks, <br/>along with categories and tags to sort them by.</p>
-        <div className="horizontal-space">
-        <Link to='/add'><button className="button--highlight">add bookmark</button></Link>
+    </main> :
+    <div className="first-screen page-container vertical-space">
+      <h2>add your first bookmark!</h2>
+      <p>This page will show your bookmarks, <br/>along with categories and tags to sort them by.</p>
+      <div className="horizontal-space">
+        <Link to='/add'><button className="form-button">add bookmark</button></Link>
         <Link to='/demo'><button>View Demo</button></Link>
-        </div>
-    </div>
-    }
-    </main>
+      </div>
+    </div> }
    </AnimatedPage>
   );
 }

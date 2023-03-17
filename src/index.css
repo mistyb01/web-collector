@@ -197,6 +197,7 @@ border-bottom: 1px dashed var(--secondary-color);
 
 .first-screen {
   text-align: center;
+  width: 100vw;
   --custom-space: 2rem;
 }
 
