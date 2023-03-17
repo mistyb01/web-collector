@@ -20,7 +20,7 @@ export const CategoryTagRow: React.FC<Props> = (props) => {
     <li className='editor-list__row'>
         {showEditFields ?
         <>
-        <input key={uniqid()} type="text" onChange={(e) => setName(e.target.value)} className="editing-input" value={newName}/>
+        <input type="text" onChange={(e) => setName(e.target.value)} className="editing-input" value={newName}/>
         <div className="editor-options horizontal-space">
             <button onClick={()=>{props.handleRenameItem(props.name, newName); setShowEditFields(false)}} className="editor-options__button">submit</button>
             <button onClick={()=>setShowEditFields(false)} className="editor-options__button">close</button>
