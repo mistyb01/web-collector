@@ -37,7 +37,11 @@ export const Home: React.FC<Props> = (props) => {
             {props.bookmarkData.length !== 0 &&
           <div className="header-buttons horizontal-space">
             <Link to='/add'><button className="header__button">add bookmark</button></Link>
+            {props.isDemo ? 
+            <Link to='/demo/edit'><button className="header__button">edit</button></Link>
+            : 
             <Link to='/edit'><button className="header__button">edit</button></Link>
+            }
           </div>}
     </header>
     <main className="home-container">

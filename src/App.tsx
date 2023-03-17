@@ -10,6 +10,7 @@ import Home from './Home';
 
 const App:FC = () => {
   const [bookmarkData, setBookmarkData] = useLocalStorage('bookmarkData', mockData);
+  const [currentMockData, setMockData] = useState(mockData);
 
   function handleAddToBookmarks(newData:BookmarkType) {
     // overwrite the mock data if we're saving data for the first time
@@ -22,6 +23,10 @@ const App:FC = () => {
  
   function updateBookmarkData(newData:BookmarkType[]) {
     setBookmarkData(newData);
+  }
+
+  function updateDemoData(newData:BookmarkType[]) {
+    setMockData(newData);
   }
 
   // for saving theme preferences
@@ -51,14 +56,24 @@ const App:FC = () => {
                 bookmarkData={bookmarkData} 
                 updateBookmarkData={updateBookmarkData}
                 updateTheme={(newTheme: string) => setTheme(newTheme)}
-                currentTheme={theme}/>}
+                currentTheme={theme}
+                isDemo={false}/>}
           />
             <Route path='/demo'
             element={
               <Home 
-                bookmarkData={mockData}
+                bookmarkData={currentMockData}
                 isDemo={true}/>}
               />
+          <Route path='/demo/edit'
+            element={
+              <EditMode 
+                bookmarkData={currentMockData} 
+                updateBookmarkData={updateDemoData}
+                updateTheme={(newTheme: string) => setTheme(newTheme)}
+                currentTheme={theme}
+                isDemo={true}/>}
+          />
         </Routes>
     </HashRouter>
     </div>
