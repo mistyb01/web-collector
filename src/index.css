@@ -8,13 +8,9 @@
 
 :root {
   --main-bg-color:#051923;
-  --light-bg-color: #0d2937;
-  --lighter-bg-color: #003554;
+  --main-accent-color: #0d2937;
   --tertiary-color: #006494;
   --secondary-color: #0582CA;
-
-  --light-text-color: #006494;
-  --input-color: #006494;
 
   --fg-color: #00A6FB;
   --highlight-color: #87cefa;
@@ -24,16 +20,48 @@
 
 [data-theme="light"] {
   --main-bg-color: rgb(255, 255, 255);
-  --light-bg-color: rgb(206, 255, 255);
-  --lighter-bg-color: rgb(228, 250, 255);
-  --tertiary-color: #cafa87;
-  --secondary-color: rgb(38, 129, 189);
-
-  --light-text-color: #8ec73f;
-  --input-color: rgb(69, 155, 156);
+  --main-accent-color: rgb(228, 255, 255);
+  --tertiary-color: #bef3ef;
+  --secondary-color: #2681bd;
 
   --fg-color: #003554;
-  --highlight-color: rgb(38, 129, 189);
+  --highlight-color: #2681bd;
+}
+
+[data-theme="strawberry"] {
+  --main-bg-color: rgb(255, 249, 249);
+  --main-accent-color: #ffddeb;
+  --tertiary-color: #ffd5e6;
+  --secondary-color: rgb(199, 58, 112);
+
+  --fg-color: rgb(78, 12, 80);
+  --highlight-color: #ff4dc4;
+
+  --border: 1px solid var(--fg-color);
+}
+
+[data-theme="banana"] {
+  --main-bg-color: rgb(255, 254, 245);
+  --main-accent-color: rgb(248, 244, 184);
+  --tertiary-color: rgb(244, 229, 23);
+  --secondary-color: rgb(215, 176, 0);
+
+  --fg-color: rgb(71, 30, 23);
+  --highlight-color: rgb(201, 125, 31);
+
+  --border: 1px solid var(--fg-color);
+}
+
+[data-theme="campfire"] {
+  --main-bg-color:#000000;
+  --main-accent-color: rgb(33, 17, 4);
+  --tertiary-color: rgb(96, 25, 3);
+  --secondary-color: rgb(237, 99, 0);
+
+  --fg-color: rgb(230, 207, 129);
+  --highlight-color: rgb(248, 252, 225);
+
+  --border: 1px solid var(--tertiary-color);
 }
 
 @font-face {
@@ -65,6 +93,7 @@ body, html, #root {
   color: var(--fg-color);
   min-height: 100%; /*MIN-height is important for allowing the height to grow. */
   width: 100%;
+  transition: 0.5s ease-in-out;
 }
 
 main, header { 
@@ -129,12 +158,18 @@ h2 {
 
 h1 {
   background: #00A6FB;
-  background: linear-gradient(to right, #00A6FB 0%, #87cefa 78%);
+  background: linear-gradient(to right, var(--secondary-color) 0%, var(--highlight-color) 78%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;  
 }
 h2 {
   color: var(--highlight-color);
+}
+
+hr {
+width: 50%;
+border: 0;
+border-bottom: 1px dashed var(--secondary-color);
 }
 
 .highlight-text { color: var(--highlight-color)}
@@ -191,7 +226,7 @@ h2 {
 
 .bookmarks-list__item {
   border: var(--border);
-  background-color: var(--lighter-bg-color);
+  background-color: var(--main-accent-color);
   padding: 3rem 2rem;
   transition: 0.5s ease-in-out;
 }
@@ -212,8 +247,8 @@ h2 {
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 3px;
-  color: var(--light-text-color);
-  border-bottom: 1px dotted var(--lighter-bg-color);
+  color: var(--highlight-color);
+  border-bottom: 1px dotted var(--main-accent-color);
 }
 
 .tags-list__item {
@@ -223,7 +258,7 @@ h2 {
 }
 
 .tags-list__item:hover {
-  color: var(--light-text-color);
+  color: var(--highlight-color);
   cursor: pointer;
 }
 
@@ -255,7 +290,7 @@ h2 {
 input[type=text] {
   background: transparent;
   border: var(--border);
-  color: var(--input-color);
+  color: var(--fg-color);
   font-size: 1.5rem;
   padding: 0.25rem 0.5rem;
   width: 100%;
@@ -298,7 +333,7 @@ input[type=text]:focus {
 .category-option {
   font-size: 1rem;
   border-radius: 100vh;
-  background-color: var(--lighter-bg-color);
+  background-color: var(--main-accent-color);
   padding: 0.1rem 0.25rem;
 }
 
@@ -349,7 +384,7 @@ input[type=text]:focus {
 }
 
 li.editor-list__row:nth-of-type(even) {
-  background-color: var(--light-bg-color);
+  background-color: var(--main-accent-color);
 }
 
 .editor-list-warning {
