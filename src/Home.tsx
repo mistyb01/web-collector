@@ -14,9 +14,9 @@ interface Props {
 
 export const Home: React.FC<Props> = (props) => {
   
-  const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
-  const [category, setCategory] = useState(categoryList[0]);
+  const [category, setCategory] = useState('all');
   const [tag, setTag] = useState('all');
+  const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
 
   function handleCategoryChange(e: React.MouseEvent<HTMLButtonElement>) {
     setCategory(e.currentTarget.id);
@@ -62,7 +62,7 @@ export const Home: React.FC<Props> = (props) => {
     <div className="filter-menu">
         <h3 className="filter-menu__header">categories</h3>
             <Categories 
-            categoryList={categoryList} 
+            categoryList={['all', ...categoryList]} 
             category={category} 
             handleCategoryChange={handleCategoryChange}/>
 
@@ -76,7 +76,7 @@ export const Home: React.FC<Props> = (props) => {
     <Bookmarks bookmarkData={props.bookmarkData} category={category} tag={tag}/>
     </main> :
     <div className="first-screen page-container vertical-space">
-      <h2>add your first bookmark!</h2>
+      <h2>save your first bookmark!</h2>
       <p>This page will show your bookmarks, <br/>along with categories and tags to sort them by.</p>
       <div className="horizontal-space">
         <Link to='/add'><button className="form-button">add bookmark</button></Link>
