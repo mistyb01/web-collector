@@ -1,6 +1,4 @@
 import React, {useState}  from 'react';
-var uniqid = require('uniqid'); 
-
 
 interface Props {
   type: string,

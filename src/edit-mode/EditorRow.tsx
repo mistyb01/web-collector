@@ -41,10 +41,10 @@ export const EditorRow: React.FC<Props> = (props) => {
         </>
         : 
         <>
-        <span>{props.bookmarkName}</span>
-        <input readOnly type="text" value={props.bookmarkUrl}/>
-        <span>{props.bookmarkCategory}</span>
-        <span>{props.bookmarkTag}</span>
+        <span>{newName}</span>
+        <input readOnly type="text" value={newUrl}/>
+        <span>{newCategory}</span>
+        <span>{newTag}</span>
         <div className="editor-options horizontal-space">
             <button onClick={() => setShowEditFields(true)} className="editor-options__button">edit</button>
             <button onClick={() => props.handleDeleteBookmark(props.bookmarkId)} className="editor-options__button">delete</button>
