@@ -5,6 +5,7 @@ import Categories from './Categories';
 import { BookmarkType } from './@types/app';
 import { Link } from 'react-router-dom';
 import AnimatedPage from './AnimatedPage';
+import { ReactComponent as ArrowLeft } from './assets/arrow-left.svg';
 
 interface Props {
   bookmarkData: BookmarkType[],
@@ -32,6 +33,13 @@ export const Home: React.FC<Props> = (props) => {
 
   return (
    <AnimatedPage>
+    {props.isDemo && 
+    <Link to='/'>
+      <div className="demo-exit">
+        <ArrowLeft/>
+        <span>exit demo</span>
+      </div>
+    </Link>}
     <header className="vertical-space">
           <h1 className="header-logo">web collector</h1>
             {props.bookmarkData.length !== 0 &&
