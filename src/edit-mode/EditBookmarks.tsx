@@ -12,7 +12,7 @@ interface Props {
 export const EditBookmarks: React.FC<Props> = (props) => {
 
     const [selectedCategory, setSelectedCategory] = useState('all');
-
+    
     let filteredBookmarks = props.bookmarkData;
     if (selectedCategory !== 'all') {
         filteredBookmarks = filteredBookmarks.filter(bookmark => bookmark.category === selectedCategory);
@@ -25,8 +25,8 @@ export const EditBookmarks: React.FC<Props> = (props) => {
             editingBookmark.url = newValues.url;
             editingBookmark.category = newValues.category;
             editingBookmark.tag = newValues.tag;
-        }
-        props.updateBookmarkData(props.bookmarkData);
+            props.updateBookmarkData(props.bookmarkData);
+        } else { return; }
       }
 
     function handleDeleteBookmark(id:number) {

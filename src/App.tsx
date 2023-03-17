@@ -20,6 +20,10 @@ const App:FC = () => {
       setBookmarkData([...bookmarkData, newData]);
     }
   }
+
+  function handleAddToDemo(newData:BookmarkType) {
+    setMockData([...currentMockData, newData]);
+  }
  
   function updateBookmarkData(newData:BookmarkType[]) {
     setBookmarkData(newData);
@@ -48,7 +52,8 @@ const App:FC = () => {
             element={
               <AddBookmark 
                 handleAddToBookmarks={handleAddToBookmarks} 
-                bookmarkData={bookmarkData}/>}
+                bookmarkData={bookmarkData}
+                isDemo={false}/>}
           />
           <Route path='/edit'
             element={
@@ -72,6 +77,13 @@ const App:FC = () => {
                 updateBookmarkData={updateDemoData}
                 updateTheme={(newTheme: string) => setTheme(newTheme)}
                 currentTheme={theme}
+                isDemo={true}/>}
+          />
+          <Route path='/demo/add' 
+            element={
+              <AddBookmark 
+                handleAddToBookmarks={handleAddToDemo} 
+                bookmarkData={currentMockData}
                 isDemo={true}/>}
           />
         </Routes>
