@@ -9,7 +9,6 @@ import { HashRouter, Route, Routes,  } from 'react-router-dom';
 import Home from './Home';
 
 const App:FC = () => {
-  
   const [bookmarkData, setBookmarkData] = useLocalStorage('bookmarkData', mockData);
 
   function handleAddToBookmarks(newData:BookmarkType) {
@@ -37,7 +36,8 @@ const App:FC = () => {
           {/* for gh-pages to work, change '/' to '/<repo-name>' */}
           <Route path=''
             element={
-              <Home bookmarkData={bookmarkData} />}
+              <Home bookmarkData={bookmarkData} 
+              isDemo={false}/>}
           />
           <Route path='/add' 
             element={
@@ -53,6 +53,12 @@ const App:FC = () => {
                 updateTheme={(newTheme: string) => setTheme(newTheme)}
                 currentTheme={theme}/>}
           />
+            <Route path='/demo'
+            element={
+              <Home 
+                bookmarkData={mockData}
+                isDemo={true}/>}
+              />
         </Routes>
     </HashRouter>
     </div>

@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 import AnimatedPage from './AnimatedPage';
 
 interface Props {
-  bookmarkData: BookmarkType[]
+  bookmarkData: BookmarkType[],
+  isDemo: boolean
 }
 
 export const Home: React.FC<Props> = (props) => {
@@ -33,14 +34,14 @@ export const Home: React.FC<Props> = (props) => {
    <AnimatedPage>
     <header className="vertical-space">
           <h1 className="header-logo">web collector</h1>
-            {localStorage.getItem('bookmarkData') !== null &&
+            {props.bookmarkData.length !== 0 &&
           <div className="header-buttons horizontal-space">
             <Link to='/add'><button className="header__button">add bookmark</button></Link>
             <Link to='/edit'><button className="header__button">edit</button></Link>
           </div>}
     </header>
     <main className="home-container">
-    {localStorage.getItem('bookmarkData') !== null ?
+    {props.bookmarkData.length !== 0 ?
     <>
     <div className="filter-menu">
         <h3 className="filter-menu__header">categories</h3>
