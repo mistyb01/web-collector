@@ -8,7 +8,6 @@ interface Props {
   tag: string
 }
 
-// React.FC<Props> specifies that Bookmarks is a functional component.
 export const Bookmarks: React.FC<Props> = (props) => {
   let filteredBookmarks = props.bookmarkData;
   if (props.category !== 'all') {

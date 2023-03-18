@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BookmarkType } from '../@types/app';
 import Select from 'react-select';
 import EditorRow from './EditorRow';
@@ -29,7 +29,7 @@ export const EditBookmarks: React.FC<Props> = (props) => {
         } else { return; }
       }
 
-    function handleDeleteBookmark(id:number) {
+    function handleDeleteBookmark(id:string) {
         const bookmarkToDelete = props.bookmarkData.findIndex(element => element.id === id);
         props.bookmarkData.splice(bookmarkToDelete, 1);
         props.updateBookmarkData(props.bookmarkData);

@@ -1,7 +1,7 @@
 export type TestType = string;
 
 export type BookmarkType = {
-    id: number,
+    id: string,
     name: string, 
     url: string, 
     description: string,

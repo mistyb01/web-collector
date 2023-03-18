@@ -1,8 +1,7 @@
-import React, {useState, useEffect}  from 'react';
-import EditBookmarks from './EditBookmarks';
+import React, {useState}  from 'react';
 
 interface Props {
-    bookmarkId: number,
+    bookmarkId: string,
     bookmarkName: string,
     bookmarkUrl: string,
     bookmarkCategory: string,

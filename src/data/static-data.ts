@@ -3,9 +3,6 @@ var uniqid = require('uniqid');
 
 const mockData: BookmarkType[] = [
      // code stuff
-    {id: uniqid(), name: "MDN WEB DOCS", url: "https://developer.mozilla.org/en-US/", description:"Like a web dev bible", category: "web dev", tag: "general"},
-    {id: uniqid(), name: "My github", url: "https://github.com/mistyb01", description:"my project repositories", category: "web dev", tag: "general"},
-    
     {id: uniqid(), name: "Javascript.info", url: "https://www.javascript.info", description:"Handy javascript reference", category: "web dev", tag: "javascript"},
     {id: uniqid(), name: "Go make things", url: "https://gomakethings.com/", description:"Writings on how JS works and good development practices in general", category: "web dev", tag: "javascript"},
     {id: uniqid(), name: "Array explorer", url: "https://arrayexplorer.netlify.app/", description:"Find the array method you need without digging through the docs", category: "web dev", tag: "javascript"},
