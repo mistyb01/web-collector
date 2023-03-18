@@ -5,16 +5,18 @@ import Categories from './Categories';
 import { BookmarkType } from './@types/app';
 import { Link } from 'react-router-dom';
 import AnimatedPage from './AnimatedPage';
+import { ReactComponent as ArrowLeft } from './assets/arrow-left.svg';
 
 interface Props {
-  bookmarkData: BookmarkType[]
+  bookmarkData: BookmarkType[],
+  isDemo: boolean
 }
 
 export const Home: React.FC<Props> = (props) => {
   
-  const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
-  const [category, setCategory] = useState(categoryList[0]);
+  const [category, setCategory] = useState('all');
   const [tag, setTag] = useState('all');
+  const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
 
   function handleCategoryChange(e: React.MouseEvent<HTMLButtonElement>) {
     setCategory(e.currentTarget.id);
@@ -31,21 +33,36 @@ export const Home: React.FC<Props> = (props) => {
 
   return (
    <AnimatedPage>
+    {props.isDemo && 
+    <Link to='/'>
+      <div className="demo-exit">
+        <ArrowLeft/>
+        <span>exit demo</span>
+      </div>
+    </Link>}
     <header className="vertical-space">
           <h1 className="header-logo">web collector</h1>
-            {localStorage.getItem('bookmarkData') !== null &&
+            {props.bookmarkData.length !== 0 &&
           <div className="header-buttons horizontal-space">
+            {props.isDemo ? 
+            <>
+            <Link to='/demo/add'><button className="header__button">add bookmark</button></Link>
+            <Link to='/demo/edit'><button className="header__button">edit</button></Link>
+            </>
+            : 
+            <>
             <Link to='/add'><button className="header__button">add bookmark</button></Link>
             <Link to='/edit'><button className="header__button">edit</button></Link>
+            </>
+            }
           </div>}
     </header>
+    {props.bookmarkData.length !== 0 ?
     <main className="home-container">
-    {localStorage.getItem('bookmarkData') !== null ?
-    <>
     <div className="filter-menu">
         <h3 className="filter-menu__header">categories</h3>
             <Categories 
-            categoryList={categoryList} 
+            categoryList={['all', ...categoryList]} 
             category={category} 
             handleCategoryChange={handleCategoryChange}/>
 
@@ -57,17 +74,15 @@ export const Home: React.FC<Props> = (props) => {
             handleTagChange={handleTagChange} />
     </div>
     <Bookmarks bookmarkData={props.bookmarkData} category={category} tag={tag}/>
-    </> :
-    <div className="page-container first-screen vertical-space">
-        <h2>add your first bookmark!</h2>
-        <p>This page will show your bookmarks, <br/>along with categories and tags to sort them by.</p>
-        <div className="horizontal-space">
-        <Link to='/add'><button className="button--highlight">add bookmark</button></Link>
+    </main> :
+    <div className="first-screen page-container vertical-space">
+      <h2>save your first bookmark!</h2>
+      <p>This page will show your bookmarks, <br/>along with categories and tags to sort them by.</p>
+      <div className="horizontal-space">
+        <Link to='/add'><button className="form-button">add bookmark</button></Link>
         <Link to='/demo'><button>View Demo</button></Link>
-        </div>
-    </div>
-    }
-    </main>
+      </div>
+    </div> }
    </AnimatedPage>
   );
 }

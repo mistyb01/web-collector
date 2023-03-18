@@ -438,6 +438,24 @@ input[type=text].editing-input:focus {
   border: 1px solid red;
 }
 
+/* demo */
+.demo-exit {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: var(--secondary-color);
+  background-color: var(--main-bg-color);
+  transition: 0.25s ease-in-out;
+  border-radius: 20px;
+  border: var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.demo-exit:hover { color: var(--highlight-color); }
+
 /* mobile/tablet layout */
 
 @media (max-width: 1024px) {

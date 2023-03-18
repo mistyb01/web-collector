@@ -1,4 +1,4 @@
-import React, {useState}  from 'react';
+import React from 'react';
 import { BookmarkType } from '../@types/app';
 import CategoryTagRow from './CategoryTagRow';
 var uniqid = require('uniqid'); 
