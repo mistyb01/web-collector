@@ -13,10 +13,11 @@ interface Props {
 }
 
 export const Home: React.FC<Props> = (props) => {
-   
-  const [category, setCategory] = useState('');
+  
+  const [category, setCategory] = useState(''); // <-- what i'm stuck on.. how to automatically select the first category..
   const [tag, setTag] = useState('all');
   const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
+  let hasSavedData = localStorage.getItem('bookmarkData') !== null;
 
   function handleCategoryChange(e: React.MouseEvent<HTMLButtonElement>) {
     setCategory(e.currentTarget.id);
@@ -42,7 +43,6 @@ export const Home: React.FC<Props> = (props) => {
     </Link>}
     <header className="vertical-space">
           <h1 className="header-logo">web collector</h1>
-            {localStorage.getItem('bookmarkData') == null &&
           <div className="header-buttons horizontal-space">
             {props.isDemo ? 
             <>
@@ -52,12 +52,12 @@ export const Home: React.FC<Props> = (props) => {
             : 
             <>
             <Link to='/add'><button className="header__button">add bookmark</button></Link>
-            <Link to='/edit'><button className="header__button">edit</button></Link>
+            {hasSavedData && <Link to='/edit'><button className="header__button">edit</button></Link>}
             </>
             }
-          </div>}
+          </div>
     </header>
-    {localStorage.getItem('bookmarkData') == null ?
+    {hasSavedData || props.isDemo ?
     <main className="home-container">
     <div className="filter-menu">
         <h3 className="filter-menu__header">categories</h3>
