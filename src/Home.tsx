@@ -1,4 +1,4 @@
-import React, { useState, ReactEventHandler }  from 'react';
+import React, { useState }  from 'react';
 import Bookmarks from './Bookmarks';
 import Tags from './Tags';
 import Categories from './Categories';
@@ -13,8 +13,8 @@ interface Props {
 }
 
 export const Home: React.FC<Props> = (props) => {
-  
-  const [category, setCategory] = useState('all');
+   
+  const [category, setCategory] = useState('');
   const [tag, setTag] = useState('all');
   const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
 
@@ -42,7 +42,7 @@ export const Home: React.FC<Props> = (props) => {
     </Link>}
     <header className="vertical-space">
           <h1 className="header-logo">web collector</h1>
-            {props.bookmarkData.length !== 0 &&
+            {localStorage.getItem('bookmarkData') == null &&
           <div className="header-buttons horizontal-space">
             {props.isDemo ? 
             <>
@@ -57,12 +57,12 @@ export const Home: React.FC<Props> = (props) => {
             }
           </div>}
     </header>
-    {props.bookmarkData.length !== 0 ?
+    {localStorage.getItem('bookmarkData') == null ?
     <main className="home-container">
     <div className="filter-menu">
         <h3 className="filter-menu__header">categories</h3>
             <Categories 
-            categoryList={['all', ...categoryList]} 
+            categoryList={categoryList} 
             category={category} 
             handleCategoryChange={handleCategoryChange}/>
 
