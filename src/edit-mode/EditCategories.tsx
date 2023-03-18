@@ -16,17 +16,20 @@ export const EditCategories: React.FC<Props> = (props) => {
       if (props.bookmarkData[i].category == oldCategoryName) {
         props.bookmarkData[i].category = newCategoryName;
       }
-      props.updateBookmarkData(props.bookmarkData);
     }
+    props.updateBookmarkData(props.bookmarkData);
   }
 
   function handleDeleteCategory(categoryName:string) {
-    for (let i = 0; i < props.bookmarkData.length; i++) {
-      if (props.bookmarkData[i].category == categoryName) {
-        props.bookmarkData.splice(i,1);
-      }
-      props.updateBookmarkData(props.bookmarkData);
-    }
+    // sort the array so all bookmarks of a category are together
+    props.bookmarkData.sort(function(a,b){
+      return a.category.localeCompare(b.category);
+    })
+    let startIndex = props.bookmarkData.findIndex(item=>item.category===categoryName);
+    // for getting the # of bookmarks in that category
+    let filteredByCategory = props.bookmarkData.filter((item) => item.category === categoryName);
+    props.bookmarkData.splice(startIndex, filteredByCategory.length);
+    props.updateBookmarkData(props.bookmarkData); 
   }
 
 

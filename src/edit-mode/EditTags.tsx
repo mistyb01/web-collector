@@ -31,17 +31,20 @@ export const EditTags: React.FC<Props> = (props) => {
       if (props.bookmarkData[i].tag == oldTagName) {
         props.bookmarkData[i].tag = newTagName;
       }
-      props.updateBookmarkData(props.bookmarkData);
     }
+    props.updateBookmarkData(props.bookmarkData);
   }
 
   function handleDeleteTag(tagName:string) {
-    for (let i = 0; i < props.bookmarkData.length; i++) {
-      if (props.bookmarkData[i].tag == tagName) {
-        props.bookmarkData.splice(i,1);
-      }
-      props.updateBookmarkData(props.bookmarkData);
-    }
+    // sort the array so all bookmarks of a category are together
+    props.bookmarkData.sort(function(a,b){
+      return a.tag.localeCompare(b.tag);
+    })
+    let startIndex = props.bookmarkData.findIndex(item=>item.tag===tagName);
+    // for getting the # of bookmarks in that category
+    let filteredByTag = props.bookmarkData.filter((item) => item.tag === tagName);
+    props.bookmarkData.splice(startIndex, filteredByTag.length);
+    props.updateBookmarkData(props.bookmarkData); 
   }
 
   return (
