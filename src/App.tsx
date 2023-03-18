@@ -9,7 +9,7 @@ import { HashRouter, Route, Routes,  } from 'react-router-dom';
 import Home from './Home';
 
 const App:FC = () => {
-  const [bookmarkData, setBookmarkData] = useLocalStorage('bookmarkData', mockData);
+  const [bookmarkData, setBookmarkData] = useLocalStorage('bookmarkData', [{id: "", name: "", url: "", description:"", category: "", tag: ""}]);
   const [currentMockData, setMockData] = useState(mockData);
 
   function handleAddToBookmarks(newData:BookmarkType) {
