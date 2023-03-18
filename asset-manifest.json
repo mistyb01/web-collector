@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/starter-tab/static/css/main.728a1833.css",
-    "main.js": "/starter-tab/static/js/main.8dda6173.js",
+    "main.js": "/starter-tab/static/js/main.c52621e3.js",
     "static/media/Questrial-Regular.ttf": "/starter-tab/static/media/Questrial-Regular.8268e81790f4302669b7.ttf",
     "static/media/ShareTechMono-Regular.ttf": "/starter-tab/static/media/ShareTechMono-Regular.d753b5dc50d171ecc94b.ttf",
     "index.html": "/starter-tab/index.html",
     "static/media/arrow-left.svg": "/starter-tab/static/media/arrow-left.8edfe59d267ad47fbed40e1710984375.svg",
     "main.728a1833.css.map": "/starter-tab/static/css/main.728a1833.css.map",
-    "main.8dda6173.js.map": "/starter-tab/static/js/main.8dda6173.js.map"
+    "main.c52621e3.js.map": "/starter-tab/static/js/main.c52621e3.js.map"
   },
   "entrypoints": [
     "static/css/main.728a1833.css",
-    "static/js/main.8dda6173.js"
+    "static/js/main.c52621e3.js"
   ]
 }
