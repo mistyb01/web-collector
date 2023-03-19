@@ -1,4 +1,4 @@
-import React, { useState }  from 'react';
+import React, { ReactEventHandler, useState }  from 'react';
 import Bookmarks from './Bookmarks';
 import Tags from './Tags';
 import Categories from './Categories';
@@ -13,17 +13,17 @@ interface Props {
 }
 
 export const Home: React.FC<Props> = (props) => {
-  
-  const [category, setCategory] = useState(''); // <-- what i'm stuck on.. how to automatically select the first category..
+  // const [category, setCategory] = useState('all');
+  const [categoryIndex, setCategoryIndex] = useState(0);
   const [tag, setTag] = useState('all');
-  const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
-  let hasSavedData = localStorage.getItem('bookmarkData') !== null;
-
+  
   function handleCategoryChange(e: React.MouseEvent<HTMLButtonElement>) {
-    setCategory(e.currentTarget.id);
+    let newIndex = categoryList.indexOf(e.currentTarget.id)
+    setCategoryIndex(newIndex);
+    // setCategory(e.currentTarget.id);
     setTag('all');
   }
-  
+
   function handleTagChange(e: React.MouseEvent<HTMLButtonElement>) {
     if (e.currentTarget.id === tag) {
       setTag('all');
@@ -31,6 +31,11 @@ export const Home: React.FC<Props> = (props) => {
     setTag(e.currentTarget.id);
     }
   }
+  
+  const categoryList = Array.from(new Set(props.bookmarkData.map(bookmark => bookmark.category)));
+  const category = categoryList[categoryIndex];
+
+  let hasSavedData = localStorage.getItem('bookmarkData') !== null;
 
   return (
    <AnimatedPage>
