@@ -1,11 +1,10 @@
-import React, { ReactEventHandler, useState }  from 'react';
+import React, { useState }  from 'react';
 import Bookmarks from './Bookmarks';
 import Tags from './Tags';
 import Categories from './Categories';
 import { BookmarkType } from './@types/app';
 import { Link } from 'react-router-dom';
 import AnimatedPage from './AnimatedPage';
-import { ReactComponent as ArrowLeft } from './assets/arrow-left.svg';
 
 interface Props {
   bookmarkData: BookmarkType[],

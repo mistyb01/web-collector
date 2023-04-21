@@ -1,4 +1,4 @@
-import React, { FormEvent, ReactEventHandler, useState }  from 'react';
+import React, { FormEvent, useState }  from 'react';
 import { BookmarkType } from './@types/app';
 import Creatable from 'react-select/creatable';
 import { Link, useNavigate } from 'react-router-dom';
