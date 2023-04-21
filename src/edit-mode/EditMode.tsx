@@ -12,7 +12,6 @@ interface Props {
     updateBookmarkData: Function,
     updateTheme: Function,
     currentTheme: string
-    isDemo: boolean
 }
 
 export const EditMode: React.FC<Props> = (props) => {
@@ -24,12 +23,8 @@ export const EditMode: React.FC<Props> = (props) => {
         <AnimatedPage>
         <div className="page-container vertical-space">
             <div className="editor-header-buttons">
-                { props.isDemo ?
-                <Link to='/demo'><button className="header__button" onClick={() => {}}>Close</button></Link>
-                :
                 <Link to='/'><button className="header__button" onClick={() => {}}>Close</button></Link>
-                }
-                </div>
+            </div>
             <h2>EDITOR</h2>
             <ul className='horizontal-space'>
                 <button className={`${mode === 'bookmarks' ? 'button--selected' : ''}`} onClick={() => setMode('bookmarks')}>Bookmarks</button>

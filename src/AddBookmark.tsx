@@ -9,7 +9,6 @@ var uniqid = require('uniqid');
 interface Props {
     handleAddToBookmarks: Function;
     bookmarkData: BookmarkType[];
-    isDemo: boolean;
 }
   
 export const AddBookmark: React.FC<Props> = (props: Props) => {
@@ -51,16 +50,14 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
         setCategory('');
         setTag('');
         setDescription('');
-        props.isDemo ? navigate('/demo') : navigate('/');
+        navigate('/');
     }
 
     return (
         <AnimatedPage>
         <div className='page-container vertical-space'>
             <div className="editor-header-buttons horizontal-space">
-                {props.isDemo ? 
-                <Link to='/demo'><button className="header__button">close</button></Link>
-                : <Link to='/'><button className="header__button">close</button></Link>}
+                <Link to='/'><button className="header__button">close</button></Link>
             </div>
             <h2>new bookmark</h2>
             <form onSubmit={validateForm} className='add-bookmark__form vertical-space'>

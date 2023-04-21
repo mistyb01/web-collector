@@ -9,18 +9,17 @@ import { ReactComponent as ArrowLeft } from './assets/arrow-left.svg';
 
 interface Props {
   bookmarkData: BookmarkType[],
-  isDemo: boolean
 }
 
 export const Home: React.FC<Props> = (props) => {
-  // const [category, setCategory] = useState('all');
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [tag, setTag] = useState('all');
   
+  //solution: category is no longer a piece of state that gets passed around.
+  // instead, the category index is state. the current category is then computed based off it. 
   function handleCategoryChange(e: React.MouseEvent<HTMLButtonElement>) {
     let newIndex = categoryList.indexOf(e.currentTarget.id)
     setCategoryIndex(newIndex);
-    // setCategory(e.currentTarget.id);
     setTag('all');
   }
 
@@ -39,22 +38,10 @@ export const Home: React.FC<Props> = (props) => {
 
   return (
    <AnimatedPage>
-    {props.isDemo && 
-    <Link to='/'>
-      <div className="demo-exit">
-        <ArrowLeft/>
-        <span>exit demo</span>
-      </div>
-    </Link>}
     <header className="vertical-space">
           <h1 className="header-logo">web collector</h1>
           <div className="header-buttons horizontal-space">
-            {props.isDemo ? 
-            <>
-            <Link to='/demo/add'><button className="header__button">add bookmark</button></Link>
-            <Link to='/demo/edit'><button className="header__button">edit</button></Link>
-            </>
-            : 
+            {
             <>
             <Link to='/add'><button className="header__button">add bookmark</button></Link>
             {hasSavedData && <Link to='/edit'><button className="header__button">edit</button></Link>}
@@ -62,7 +49,7 @@ export const Home: React.FC<Props> = (props) => {
             }
           </div>
     </header>
-    {hasSavedData || props.isDemo ?
+    {hasSavedData ?
     <main className="home-container">
     <div className="filter-menu">
         <h3 className="filter-menu__header">categories</h3>
@@ -85,7 +72,6 @@ export const Home: React.FC<Props> = (props) => {
       <p>This page will show your bookmarks, <br/>along with categories and tags to sort them by.</p>
       <div className="horizontal-space">
         <Link to='/add'><button className="form-button">add bookmark</button></Link>
-        <Link to='/demo'><button>View Demo</button></Link>
       </div>
     </div> }
    </AnimatedPage>

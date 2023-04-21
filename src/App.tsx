@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FC } from 'react';
 import { BookmarkType } from './@types/app';
 import AddBookmark from './AddBookmark';
-import mockData from './data/static-data';
 import { useLocalStorage } from 'usehooks-ts';
 import EditMode from './edit-mode/EditMode';
 import { HashRouter, Route, Routes,  } from 'react-router-dom';
@@ -10,7 +9,6 @@ import Home from './Home';
 
 const App:FC = () => {
   const [bookmarkData, setBookmarkData] = useLocalStorage('bookmarkData', [{id: "", name: "", url: "", description:"", category: "", tag: ""}]);
-  const [currentMockData, setMockData] = useState(mockData);
 
   function handleAddToBookmarks(newData:BookmarkType) {
     // overwrite the mock data if we're saving data for the first time
@@ -21,16 +19,8 @@ const App:FC = () => {
     }
   }
 
-  function handleAddToDemo(newData:BookmarkType) {
-    setMockData([...currentMockData, newData]);
-  }
- 
   function updateBookmarkData(newData:BookmarkType[]) {
     setBookmarkData(newData);
-  }
-
-  function updateDemoData(newData:BookmarkType[]) {
-    setMockData(newData);
   }
 
   // for saving theme preferences
@@ -45,15 +35,13 @@ const App:FC = () => {
           {/* for gh-pages to work, change '/' to '/<repo-name>' */}
           <Route path=''
             element={
-              <Home bookmarkData={bookmarkData} 
-              isDemo={false}/>}
+              <Home bookmarkData={bookmarkData}/>}
           />
           <Route path='/add' 
             element={
               <AddBookmark 
                 handleAddToBookmarks={handleAddToBookmarks} 
-                bookmarkData={bookmarkData}
-                isDemo={false}/>}
+                bookmarkData={bookmarkData}/>}
           />
           <Route path='/edit'
             element={
@@ -61,30 +49,7 @@ const App:FC = () => {
                 bookmarkData={bookmarkData} 
                 updateBookmarkData={updateBookmarkData}
                 updateTheme={(newTheme: string) => setTheme(newTheme)}
-                currentTheme={theme}
-                isDemo={false}/>}
-          />
-            <Route path='/demo'
-            element={
-              <Home 
-                bookmarkData={currentMockData}
-                isDemo={true}/>}
-              />
-          <Route path='/demo/edit'
-            element={
-              <EditMode 
-                bookmarkData={currentMockData} 
-                updateBookmarkData={updateDemoData}
-                updateTheme={(newTheme: string) => setTheme(newTheme)}
-                currentTheme={theme}
-                isDemo={true}/>}
-          />
-          <Route path='/demo/add' 
-            element={
-              <AddBookmark 
-                handleAddToBookmarks={handleAddToDemo} 
-                bookmarkData={currentMockData}
-                isDemo={true}/>}
+                currentTheme={theme}/>}
           />
         </Routes>
     </HashRouter>

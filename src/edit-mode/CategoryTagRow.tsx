@@ -26,7 +26,7 @@ export const CategoryTagRow: React.FC<Props> = (props) => {
         </>
         :
         <>
-        {props.name}
+        {newName}
         <div className="editor-options horizontal-space">
             <button onClick={()=>setShowEditFields(true)} className="editor-options__button">rename</button>
             <button onClick={()=>setShowWarning(!showWarning)} className="editor-options__button">
@@ -39,7 +39,7 @@ export const CategoryTagRow: React.FC<Props> = (props) => {
         <div className="editor-list-warning horizontal-space">
             <span>Deleting this {props.type} will also delete all associated bookmarks.</span>
             <button 
-                onClick={()=>props.handleDeleteItem(props.name)} 
+                onClick={()=>props.handleDeleteItem(newName)} 
                 className="editor-options__button">
                 Proceed
             </button>
