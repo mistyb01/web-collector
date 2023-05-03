@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "homepage": "/starter-tab/#",
+  "homepage": "/web-collector/#",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
