@@ -26,12 +26,7 @@ export const Bookmarks: React.FC<Props> = (props) => {
       <ul className="bookmarks-list">
         {filteredBookmarks.map((bookmark, i) => {
           return (
-            <li
-              key={uniqid()}
-              className="bookmarks-list__item"
-              id={`bookmark-${i}`}
-              tabIndex={0}
-            >
+            <li key={uniqid()} tabIndex={-1} className="bookmarks-list__item">
               <a href={bookmark.url} target="_blank">
                 {bookmark.name}
               </a>

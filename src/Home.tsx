@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Bookmarks from "./Bookmarks";
 import Tags from "./Tags";
 import Categories from "./Categories";
@@ -47,11 +47,11 @@ export const Home: React.FC<Props> = (props) => {
         <div className="header-buttons horizontal-space">
           {
             <>
-              <Link to="/add">
+              <Link to="/add" tabIndex={-1}>
                 <button className="header__button">add bookmark</button>
               </Link>
               {hasSavedData && (
-                <Link to="/edit">
+                <Link to="/edit" tabIndex={-1}>
                   <button className="header__button">edit</button>
                 </Link>
               )}

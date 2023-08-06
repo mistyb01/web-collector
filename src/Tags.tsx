@@ -25,7 +25,7 @@ export const Tags: React.FC<Props> = (props) => {
             return (
               <button
                 key={uniqid()}
-                className="tags-list__item tags-list__item--selected"
+                className="sidebar-button button--selected"
                 onClick={props.handleTagChange}
                 id={tag}
               >
@@ -37,7 +37,7 @@ export const Tags: React.FC<Props> = (props) => {
             <button
               key={uniqid()}
               tabIndex={0}
-              className="tags-list__item"
+              className="sidebar-button"
               onClick={props.handleTagChange}
               id={tag}
             >

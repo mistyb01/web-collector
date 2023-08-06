@@ -129,7 +129,7 @@ button:hover {
   background-color: var(--tertiary-color);
 }
 
-.category-button {
+.sidebar-button {
   border: var(--border);
   width: 100%;
   padding: 0.5rem 1rem;
@@ -231,7 +231,8 @@ border-bottom: 1px dashed var(--secondary-color);
   transition: 0.5s ease-in-out;
 }
 
-.bookmarks-list__item:hover {
+.bookmarks-list__item:hover,
+.bookmarks-list__item:has(a:focus-visible) {
   color: var(--highlight-color);
   background-color: var(--tertiary-color);
 }
@@ -471,7 +472,7 @@ input[type=text].editing-input:focus {
     width: 90vw;
   }
    
-.category-button {
+.sidebar-button {
   padding: 0.75rem 1.75rem;
   margin-top: 0.5rem;
 }
@@ -486,7 +487,7 @@ input[type=text].editing-input:focus {
     --custom-space: 2rem;
   }
  
-.category-button {
+.sidebar-button {
   padding: 1rem 2rem;
   margin-top: 0.5rem;
 }
