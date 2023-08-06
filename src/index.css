@@ -438,6 +438,14 @@ input[type=text].editing-input:focus {
   border: 1px solid red;
 }
 
+.skip-to-content {
+  opacity: 0;
+}
+
+.skip-to-content:focus-visible {
+  opacity: 1;
+}
+
 /* demo */
 .demo-exit {
   position: fixed;
