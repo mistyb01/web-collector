@@ -129,7 +129,7 @@ button:hover {
   background-color: var(--tertiary-color);
 }
 
-.category-button {
+.sidebar-button {
   border: var(--border);
   width: 100%;
   padding: 0.5rem 1rem;
@@ -231,7 +231,8 @@ border-bottom: 1px dashed var(--secondary-color);
   transition: 0.5s ease-in-out;
 }
 
-.bookmarks-list__item:hover {
+.bookmarks-list__item:hover,
+.bookmarks-list__item:has(a:focus-visible) {
   color: var(--highlight-color);
   background-color: var(--tertiary-color);
 }
@@ -300,11 +301,15 @@ input[type=text]:focus {
   color: var(--highlight-color);
 }
 
-.radio-label { position: relative; }
+.category-option {
+  font-size: 1rem;
+  border-radius: 100vh;
+  background-color: var(--main-accent-color);
+  padding: 0.25rem 0.5rem;
+}
 
-.radio-label input {
-  position: absolute;
-  opacity: 0;
+.category-option input {
+  margin-right: 0.5rem;
 }
 
 .radio-label--selected {
@@ -328,17 +333,6 @@ input[type=text]:focus {
 
 .add-bookmark__category-options li {
   display: inline;
-}
-
-.category-option {
-  font-size: 1rem;
-  border-radius: 100vh;
-  background-color: var(--main-accent-color);
-  padding: 0.1rem 0.25rem;
-}
-
-.category-option--new {
-  color: var(--highlight-color);
 }
 
 /* edit mode */
@@ -438,6 +432,22 @@ input[type=text].editing-input:focus {
   border: 1px solid red;
 }
 
+.skip-to-content {
+  position: absolute;
+  opacity: 0;
+  background-color: var(--main-bg-color);
+  color: var(--highlight-color);
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 2rem;
+}
+
+.skip-to-content:focus-visible {
+  opacity: 1;
+}
+
 /* demo */
 .demo-exit {
   position: fixed;
@@ -463,7 +473,7 @@ input[type=text].editing-input:focus {
     width: 90vw;
   }
    
-.category-button {
+.sidebar-button {
   padding: 0.75rem 1.75rem;
   margin-top: 0.5rem;
 }
@@ -478,7 +488,7 @@ input[type=text].editing-input:focus {
     --custom-space: 2rem;
   }
  
-.category-button {
+.sidebar-button {
   padding: 1rem 2rem;
   margin-top: 0.5rem;
 }
