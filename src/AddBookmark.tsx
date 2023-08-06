@@ -100,6 +100,7 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
             className="add-bookmark__category-options horizontal-space "
           >
             <li
+              key={0}
               className={
                 showCategoryInput
                   ? "category-option radio-label--selected"
@@ -120,10 +121,10 @@ export const AddBookmark: React.FC<Props> = (props: Props) => {
               <label htmlFor="new-category">new category</label>
             </li>
             {localStorage.getItem("bookmarkData") !== null &&
-              categoryList.map((category) => {
+              categoryList.map((category, i) => {
                 return (
                   <li
-                    key={uniqid()}
+                    key={i + 1}
                     className={
                       category === selectedCategory
                         ? "radio-label--selected category-option"
