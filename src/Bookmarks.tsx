@@ -30,7 +30,7 @@ export const Bookmarks: React.FC<Props> = (props) => {
   return (
     <>
       <button className="skip-to-content" onClick={setFocus} tabIndex={1}>
-        skip to main content
+        skip to bookmarks
       </button>
       <div className="bookmarks-container">
         <ul className="bookmarks-list">
