@@ -41,9 +41,7 @@ export const Home: React.FC<Props> = (props) => {
     <AnimatedPage>
       <header className="vertical-space">
         <h1 className="header-logo">web collector</h1>
-        <Link to="#bookmark-0" className="skip-to-content">
-          skip to main content
-        </Link>
+
         <div className="header-buttons horizontal-space">
           {
             <>

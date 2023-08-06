@@ -94,6 +94,7 @@ body, html, #root {
   min-height: 100%; /*MIN-height is important for allowing the height to grow. */
   width: 100%;
   transition: 0.5s ease-in-out;
+  position: relative;
 }
 
 main, header { 
@@ -433,7 +434,10 @@ input[type=text].editing-input:focus {
 }
 
 .skip-to-content {
+  position: absolute;
   opacity: 0;
+  background-color: var(--main-bg-color);
+  color: var(--highlight-color);
 }
 
 .skip-to-content:focus-visible {
